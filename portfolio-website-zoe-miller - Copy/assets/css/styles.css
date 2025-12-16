@@ -106,7 +106,6 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   display: block !important; /* Force it to show */
   width: 40px !important;
   height: 40px !important;
-  border: 2px solid red; /* TEMPORARY RED BORDER TO FIND IT */
   cursor: pointer;
   z-index: 9999; /* Force it to top */
 }
