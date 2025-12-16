@@ -102,15 +102,25 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   align-items: center;
 }
 
-/* 2. Hamburger Menu (Draws 3 Lines Automatically) */
+/* 2. Hamburger Menu (Using the Icon) */
 .nav-toggle {
-  width: 25px; /* Width of the menu */
-  height: 20px; /* Height of the menu */
-  cursor: pointer;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem; /* Same size as the Moon icon */
+  color: var(--title-color); /* Same dark color */
+}
+
+/* Ensure the icon is visible */
+.nav-toggle i {
+  display: block;
+}
+
+/* IMPORTANT: Remove the old "drawing" lines if they exist */
+.nav-toggle::before, 
+.nav-toggle::after {
+  display: none !important; 
 }
 
 /* The Middle Line */
