@@ -1,37 +1,31 @@
 /*=============== MENU ===============*/
-const navMenu = document.getElementById('nav-menu');
-const navToggle = document.getElementById('nav-toggle');
+const navMenu  = document.getElementById('nav-menu'),
+navToggle = document.getElementById('nav-toggle');
 
 /* Menu show - hidden */
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('show-menu');
-        navToggle.classList.toggle('animate-toggle');
-    });
-}
+navToggle.addEventListener('click', ( ) => {
+    navMenu.classList.toggle('show-menu');
+    navToggle.classList.toggle('animate-toggle');
+});
 
 /*=============== REMOVE MENU MOBILE ===============*/
-/* FIXED: Changed selector from '.nav-work' to '.nav-link' so it actually works */
-const navLinks = document.querySelectorAll('.nav-link');
+const navwork = document.querySelectorAll('.nav-work');
 
 function linkAction() {
     const navMenu = document.getElementById('nav-menu');
-    const navToggle = document.getElementById('nav-toggle');
-    
-    // When we click on each nav__link, we remove the show-menu class
-    if(navMenu) navMenu.classList.remove('show-menu');
-    if(navToggle) navToggle.classList.remove('animate-toggle');
+
+   navMenu.classList.remove('show-menu');
+    navToggle.classList.remove('animate-toggle');
 }
 
-navLinks.forEach((n) => n.addEventListener('click', linkAction));
+navwork.forEach((a) => a.addEventListener('click', linkAction));
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
+
 const scrollHeader = () => {
     const header = document.getElementById('header');
-    if(!header) return;
 
-    // Added fallback for different browsers
-    (window.scrollY || window.pageYOffset) >= 20 
+    window.scrollY >= 20 
     ? header.classList.add('bg-header') 
     : header.classList.remove('bg-header');
 };
@@ -44,20 +38,17 @@ const sections = document.querySelectorAll('section[id]');
 const scrollActive = () => {
     const scrollY = window.pageYOffset;
 
-    sections.forEach((current) => {
+    sections.forEach((current)  => {
         const sectionHeight = current.offsetHeight,
         sectionTop = current.offsetTop - 50,
-        sectionId = current.getAttribute('id');
-        
-        /* FIXED: Added quotes to selector to prevent errors */
-        const sectionClass = document.querySelector('.nav-menu a[href*="' + sectionId + '"]');
+        sectionId = current.getAttribute('id'),
+        sectionClass = document.querySelector('.nav-menu a[href*' +  sectionId + ']');
 
-        if(sectionClass) {
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                sectionClass.classList.add('active-link');
-            } else {
-                sectionClass.classList.remove('active-link');
-            }
+
+        if(scrollY > sectionTop && scrollY  <=  sectionTop + sectionHeight) {
+            sectionClass.classList.add('active-link');
+        } else {
+            sectionClass.classList.remove('active-link');
         }
     });
 };
@@ -68,11 +59,9 @@ window.addEventListener('scroll', scrollActive);
 /*=============== SERVICES SWIPER ===============*/
 var servicesSwiper = new Swiper('.services-swiper', {
     spaceBetween: 32,
-    grabCursor: true,
 
     pagination: {
         el: '.swiper-pagination',
-        clickable: true,
     },
 
     breakpoints: {
@@ -86,7 +75,7 @@ var servicesSwiper = new Swiper('.services-swiper', {
 });
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
-var mixer = mixitup('.work-container', {
+var mixer =  mixitup('.work-container', {
     selectors: {
         target: '.mix',
     },
@@ -106,45 +95,37 @@ function activeWork() {
 
 linkWork.forEach((a) => a.addEventListener('click', activeWork));
 
-/*=============== RESUME (CRASH-PROOF) ===============*/
+/*=============== RESUME ===============*/
 const accordionItems = document.querySelectorAll('.resume-item');
 
 accordionItems.forEach((item) => {
-    const header = item.querySelector('.resume-header');
-    const content = item.querySelector('.resume-content');
-    const icon = item.querySelector('.resume-icon i');
+    const header = item.querySelector('.resume-header'),
+    content = item.querySelector('.resume-content'),
+    icon = item.querySelector('.resume-icon i');
 
-    // Only run if elements exist to prevent crashing
-    if(header && content && icon) {
-        header.addEventListener('click', () => {
-            const isOpen = item.classList.toggle('accordion-open');
+    header.addEventListener('click', () => {
+        const isOpen = item.classList.toggle('accordion-open');
 
-            content.style.height = isOpen ? content.scrollHeight + 'px' : '0';
-            icon.className = isOpen ? 'ri-subtract-line' : 'ri-add-line';
+        content.style.height =  isOpen ? content.scrollHeight + 'px' : '0';
+        icon.className = isOpen ?  'ri-subtract-line' : 'ri-add-line';
 
-            accordionItems.forEach((otherItem) => {
-                if (otherItem !== item && otherItem.classList.contains('accordion-open')) {
-                    otherItem.querySelector('.resume-content').style.height = '0';
-                    otherItem.querySelector('.resume-icon i').className = 'ri-add-line';
-                    otherItem.classList.remove('accordion-open'); 
-                }
-            });
+        accordionItems.forEach((otherItem) => {
+            if (otherItem !== item && otherItem.classList.contains('accordion-open')) {
+                otherItem.querySelector('.resume-content').style.height = '0';
+                otherItem.querySelector('.resume-icon i').className = 'ri-add-line';
+                otherItem.classList.remove('accordion-open'); 
+            }
         });
-    }
+    });
 });
 
 
-/*=============== TESTIMONIALS SWIPER (FIXED) ===============*/
+/*=============== TESTIMONIALS SWIPER ===============*/
 var testimonialsSwiper = new Swiper('.testimonials-swiper', {
     spaceBetween: 32,
-    grabCursor: true,
-    
-    /* CRITICAL FIX: Forces 1 big card on mobile */
-    slidesPerView: 1, 
 
     pagination: {
         el: '.swiper-pagination',
-        clickable: true,
     },
 
     breakpoints: {
@@ -169,12 +150,9 @@ message = document.getElementById('message');
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // Check if elements exist
-    if(!contactName || !contactEmail || !contactSubject || !contactMessage) return;
-
     if ( 
         contactName.value === '' || 
-        contactEmail.value === '' || 
+        contactEmail.value === ''  || 
         contactSubject.value === '' || 
         contactMessage.value === '' 
     ) {
@@ -186,20 +164,19 @@ const sendEmail = (e) => {
            message.textContent = ''; 
         }, 3000);    
     } else {
-        // FIXED: Using '#contact-form' selector
-        emailjs.sendForm('service_va8dh2w', 'template_fnquuhg', '#contact-form')
+        emailjs
+        .sendForm('service_va8dh2w',  'template_fnquuhg',  'contact-form')
         .then(
             () => {
                 message.textContent = 'Message sent ✔';
                 message.classList.add('color-first');
 
                 setTimeout(() => {
-                    message.textContent = ''; 
-                }, 5000);    
+           message.textContent = ''; 
+        }, 5000);    
             },
             (error) => {
-                message.textContent = 'OOPS! SOMETHING WENT WRONG...';
-                message.classList.add('color-red');
+                alert('OPs! SOMETHING WENT WRONG...', error);
             }
         );
 
@@ -210,17 +187,20 @@ const sendEmail = (e) => {
     }
 };
 
-if(contactForm) {
-    contactForm.addEventListener('submit', sendEmail);
-}
+contactForm.addEventListener('submit', sendEmail);
+
+/*=============== STYLE SWITCHER ===============*/
+
+/* Switcher show */
+
+/* Switcher hidden */
 
 /*=============== THEME COLORS ===============*/
+
 /*=============== LIGHT/DARK MODE ===============*/
 const themeButton = document.getElementById('theme-toggle');
 
-if(themeButton) {
-    themeButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-        themeButton.classList.toggle('ri-sun-line');
-    });
-}
+themeButton.addEventListener('click',  () => {
+    document.body.classList.toggle('dark-theme');
+    themeButton.classList.toggle('ri-sun-line');
+});
