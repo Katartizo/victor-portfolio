@@ -1500,72 +1500,69 @@ footer {
 
 
 
+
 /* ================================================================= */
-/* 🛑 FINAL MOBILE RESET - PASTE AT THE VERY BOTTOM OF CSS 🛑 */
+/* 🛑 FINAL MOBILE RESET - PASTE AT THE VERY BOTTOM OF STYLES.CSS 🛑 */
 /* ================================================================= */
 
 @media screen and (max-width: 992px) {
 
-  /* 1. FIX THE OVERLAP (CRITICAL) */
-  /* This stops the image from floating on top of the text */
-  .home-banner {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    transform: none !important;
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
+  /* --- 1. FORCE NAV BAR MENU TO SHOW (Hamburger Icon) --- */
+  .nav-toggle {
+    display: flex !important;
     align-items: center;
+    justify-content: center;
+    width: 40px !important;
+    height: 40px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer;
+    z-index: 10000; /* Sit on top of everything */
   }
 
-  /* 2. FIX PROFILE PICTURE (HEAD CUT & SIZE) */
+  /* Remove the custom lines that were making it invisible */
+  .nav-toggle::before, .nav-toggle::after {
+    display: none !important;
+  }
+
+  /* Force the icon inside to be visible and dark */
+  .nav-toggle i {
+    font-size: 2rem !important;
+    color: var(--title-color) !important;
+    display: block !important;
+  }
+
+  /* --- 2. FIX PROFILE PICTURE (FULL FACE VISIBLE) --- */
   .home-img-wrapper {
     width: 250px !important;
     height: 250px !important;
     border-radius: 50% !important;
-    margin: 0 auto 2rem !important;
-    position: relative !important;
+    margin: 2rem auto !important; /* Space above and below */
+    overflow: hidden;
   }
 
   .home-profile {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: top center !important; /* Shows full face */
+    object-position: top center !important; /* This brings the face down */
   }
 
-  /* 3. FIX THE FLOATING BADGES (5+ Years / 10 Projects) */
-  /* Force them to sit neatly under the image */
+  /* --- 3. FIX OVERLAPPING BADGES (5+ Years / 10 Projects) --- */
+  /* Stop them from floating on top of your name */
   .home-data {
-    position: static !important; /* Stop floating! */
-    width: 100% !important;
-    max-width: 280px !important;
-    height: auto !important;
-    padding: 1rem !important;
+    position: static !important;
+    transform: none !important;
+    width: 220px !important;
     margin: 1rem auto !important;
     display: flex !important;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    background: var(--container-color);
-    z-index: 1;
+    border: 1px solid var(--border-color);
+    box-shadow: none !important;
   }
 
-  /* 4. FIX THE MISSING NAV MENU (Hamburger) */
-  .nav-toggle {
-    display: flex !important; /* Force visibility */
-    font-size: 2rem;
-    color: var(--title-color); /* Make it dark so it's visible */
-    z-index: 99999; /* Put it on top of everything */
-    cursor: pointer;
-  }
-  
-  .nav-menu {
-    padding-top: 5rem; /* Space for close button */
-  }
-
-  /* 5. FIX THE RESUME SCATTER */
+  /* --- 4. FIX RESUME LAYOUT (STACKED) --- */
   .resume-container {
     display: flex !important;
     flex-direction: column !important;
@@ -1573,29 +1570,23 @@ footer {
   }
   
   .resume-container::before {
-    display: none !important; /* Hide the overlapping line */
+    display: none !important; /* Remove the line cutting through text */
   }
 
-  /* 6. FIX THE FOOTER (SCATTERED TEXT) */
+  .resume-group {
+    width: 100% !important;
+  }
+
+  /* --- 5. FIX FOOTER (ALIGNMENT) --- */
   .footer-container {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 1.5rem !important;
-  }
-  
-  .footer-copyright {
-    margin: 0 !important;
+    gap: 1.5rem;
+    text-align: center;
   }
 
-  /* 7. FIX TESTIMONIAL IMAGE SIZE */
-  .testimonial-img {
-    width: 80px !important;
-    height: 80px !important;
-    border-radius: 50% !important;
-    object-fit: cover;
-    margin: 0 auto 1rem;
-    display: block !important;
+  /* --- 6. FIX CONTACT FORM INPUTS --- */
+  .contact-form-input {
+    width: 100% !important;
   }
 }
