@@ -1149,4 +1149,46 @@ footer {
     object-position: top center !important; /* Shows Face */
   }
 
-  /* 3. FIX BADGES (Move them UNDER the image, s
+  /* 3. FIX BADGES (Move them UNDER the image, stop floating) */
+  .home-data {
+    position: static !important; /* Forces them into the flow */
+    transform: none !important;
+    width: 220px !important;
+    margin: 1rem auto !important; /* Space between them */
+    display: flex !important;
+    justify-content: center;
+    text-align: center;
+    background: var(--container-color);
+    box-shadow: 4px 4px var(--shadow-color); /* Keep original style */
+    border: 2px solid var(--border-color); /* Keep original style */
+  }
+
+  /* 4. CONTACT FORM (Fix short inputs) */
+  .contact-form,
+  .contact-group,
+  .contact-form-div {
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  .contact-form-input {
+    width: 100% !important; /* Full width input */
+    margin-bottom: 1rem;
+  }
+  
+  /* 5. RESUME (Stack nicely) */
+  .resume-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  .resume-container::before { display: none !important; }
+  .resume-group { width: 100% !important; }
+
+  /* 6. FOOTER (Center alignment) */
+  .footer-container {
+    flex-direction: column !important;
+    gap: 1.5rem;
+    text-align: center;
+  }
+}
