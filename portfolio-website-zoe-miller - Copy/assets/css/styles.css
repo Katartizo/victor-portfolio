@@ -138,65 +138,121 @@ button, input, textarea { border: none; outline: none; background-color: transpa
     border-radius: 50%; box-shadow: 0 0 4px var(--shadow-color);
 }
 
-/*=============== PORTFOLIO (ZORRO CARD STYLE) ===============*/
-/* This ensures cards look like your reference: rounded, clean, with link */
-.work-container { grid-template-columns: 1fr; justify-content: center; } /* 1 Column on Mobile for clarity */
+/*=============== WORK (PORTFOLIO) ===============*/
+.work-container {
+  grid-template-columns: 1fr; /* Mobile default */
+  justify-content: center;
+  gap: 2rem;
+}
 
-.card { 
-  background-color: var(--container-color); 
-  padding: 1.5rem; 
-  border-radius: 1.5rem; 
-  box-shadow: 4px 4px 16px var(--shadow-color); 
+/* --- Filter Menu (All, Photography, etc.) --- */
+.work-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 2.5rem; /* Space between words */
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.work-item {
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 0.5rem; /* Space for the green line */
+  transition: color 0.3s;
+}
+
+.work-item:hover {
+  color: var(--first-color);
+}
+
+/* The Green Underline for Active Item */
+.active-work {
+  color: var(--title-color); /* Keep text dark */
+}
+
+.active-work::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Line spans full width of text */
+  height: 4px; /* Thickness of the line */
+  background-color: var(--first-color); /* The Green Color */
+  border-radius: 2px;
+}
+
+/* --- The Project Card (Zorro Style) --- */
+.card {
+  background-color: var(--container-color); /* White box */
+  padding: 1.5rem;
+  border-radius: 1.5rem; /* Rounded corners */
+  box-shadow: 0 4px 16px hsla(var(--hue), 80%, 10%, 0.1); /* Soft shadow */
   transition: .3s;
 }
 
-.work-img { 
-  width: 100%; 
-  height: 220px; 
-  object-fit: cover; 
-  border-radius: 1rem; 
-  margin-bottom: 1rem; 
-  display: block; 
+.work-img {
+  width: 100%;
+  height: 250px; /* Tall image like the screenshot */
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: block;
 }
 
+/* "Branding" Text */
 .work-category {
   font-size: var(--small-font-size);
-  color: var(--first-color);
-  font-weight: var(--font-medium);
+  color: var(--first-color); /* Green text */
+  font-weight: var(--font-bold);
   margin-bottom: 0.5rem;
   display: block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
+/* "Zorro" Text */
 .work-title {
-  font-size: var(--h3-font-size);
+  font-size: var(--h2-font-size); /* Big bold title */
   font-weight: var(--font-bold);
   color: var(--title-color);
   margin-bottom: 0.75rem;
 }
 
+/* Description Text */
 .work-description {
-  font-size: var(--small-font-size);
+  font-size: var(--normal-font-size);
   color: var(--text-color);
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
-/* See Pricing Link with Arrow */
+/* "See Pricing" Link */
 .link {
   display: inline-flex;
   align-items: center;
   column-gap: 0.5rem;
-  color: var(--title-color);
+  color: var(--first-color); /* Green text for link */
   font-weight: var(--font-bold);
   font-size: var(--small-font-size);
   transition: .3s;
 }
-.link:hover { color: var(--first-color); }
-.link-icon { font-size: 1.2rem; transition: .3s; }
-.link:hover .link-icon { transform: translateX(0.25rem); }
 
+.link i {
+  font-size: 1.2rem;
+  transition: .3s;
+}
+
+.link:hover i {
+  transform: translateX(0.25rem); /* Arrow moves right on hover */
+}
+
+/* Desktop Grid Restoration */
+@media screen and (min-width: 768px) {
+  .work-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns on Desktop */
+  }
+}
 
 /*=============== RESUME ===============*/
 .resume-container { grid-template-columns: 1fr; }
