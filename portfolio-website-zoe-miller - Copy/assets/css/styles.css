@@ -481,8 +481,109 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 }
 
 /*=============== TESTIMONIALS ===============*/
-.testimonials-container { width: 100%; overflow: hidden; }
-.testimonial-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; display: block; }
+.testimonials-container {
+  overflow: hidden;
+}
+
+/* The White Card */
+.testimonial-card {
+  background-color: var(--container-color);
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px hsla(var(--hue), 80%, 10%, 0.1);
+  text-align: center;
+  position: relative; /* Needed for positioning dots and quotes */
+  overflow: hidden;
+  height: 100%;
+}
+
+/* The Dots Decoration (Bottom Right) */
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  background-image: url(../img/shape-3.png); /* Ensure this file exists */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* The Green Quote Icon (Top Left) */
+.testimonial-quote {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.testimonial-quote i {
+  font-size: 2.5rem;
+  color: var(--first-color);
+}
+
+/* Profile Picture (Centered) */
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  display: block;
+}
+
+/* Review Text */
+.testimonial-description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 3rem; /* Space for the name below */
+  line-height: 1.6;
+}
+
+/* Name & Job Wrapper (Aligned Left) */
+.testimonial-info {
+  text-align: left;
+  margin-top: auto;
+}
+
+.testimonial-name {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-job {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+}
+
+/* Swiper Pagination (Dots) */
+.swiper-pagination {
+  position: initial;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 2px solid var(--title-color);
+  opacity: 1;
+  margin: 0 6px !important;
+  transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--first-color);
+  border-color: var(--first-color);
+  transform: scale(1.2);
+}
+
 
 /*=============== CONTACT ===============*/
 .contact-container { grid-template-columns: 1fr; }
