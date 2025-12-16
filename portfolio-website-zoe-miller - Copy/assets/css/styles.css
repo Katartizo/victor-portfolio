@@ -1131,3 +1131,42 @@ footer {
     column-gap: 2rem;
   }
 }
+
+
+
+
+
+
+/* ==================== MOBILE LAYOUT FIXES ==================== */
+/* Paste this at the very end of your styles.css file */
+
+/* 1. Force Resume to be 1 Column (Stacked) */
+.resume-container {
+    grid-template-columns: 1fr !important; /* Stack Education & Experience */
+    gap: 2rem;
+}
+
+/* 2. Hide the vertical line/dots on mobile if they look messy */
+/* (Optional: Remove the weird center line on small screens) */
+.resume-container::before {
+    display: none; 
+}
+
+/* 3. Ensure other grids are also 1 column */
+.work-container,
+.skills-container,
+.services-container,
+.contact-container {
+    grid-template-columns: 1fr !important;
+}
+
+/* 4. Desktop Restore (Only for screens bigger than 768px) */
+@media screen and (min-width: 768px) {
+    .resume-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .resume-container::before {
+        display: block; /* Show line again on desktop */
+    }
+}
