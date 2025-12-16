@@ -717,91 +717,103 @@
       <!--=============== CONTACT ===============-->
       
 <section class="contact section" id="contact">
-        <h2 class="section-title" data-title="Let's Talk About Ideas">Contact Me</h2>
+  <div class="container">
+    <div class="section-title-center">
+      <h2 class="section-title" data-title="Let's Talk About Ideas">Contact Me</h2>
+    </div>
 
-        <div class="contact-container container grid">
-          <div class="contact-content">
-            <article class="contact-card">
-              <span class="contact-icon">
-                <i class="ri-nap-2-line"></i>
-              </span>
-
-              <div>
-                <h3 class="contact-title">Address</h3>
-                <p class="contact-data">North Tower, Toronto, Canada</p>
-              </div>
-            </article>
-
-             <article class="contact-card">
-              <span class="contact-icon">
-                <i class="ri-user-3-line"></i>
-              </span>
-
-              <div>
-                <h3 class="contact-title">Freelance</h3>
-                <p class="contact-data">Available Right Now</p>
-              </div>
-            </article>
-
-             <article class="contact-card">
-              <span class="contact-icon">
-                <i class="ri-mail-line"></i>
-              </span>
-
-              <div>
-                <h3 class="contact-title">Email</h3>
-                <p class="contact-data">eyitayovictor2022@gmail.com</p>
-              </div>
-            </article>
-
-             <article class="contact-card">
-              <span class="contact-icon">
-                <i class="ri-contacts-book-2-line"></i>
-              </span>
-
-              <div>
-                <h3 class="contact-title">Phone</h3>
-                <p class="contact-data">+234-9037835334</p>
-              </div>
-            </article>
-          </div>
-
-          <form action="" class="contact-form grid" id="contact-form">
-            <div class="contact-form-group grid">
-              <div class="contact-form-div">
-                <label for="" class="contact-form-laabel">Your full Name <b>*</b></label>
-                <input type="text" class="contact-form-input" name="name" id="contact-name" />
-              </div>
-
-              <div class="contact-form-div">
-                <label for="" class="contact-form-laabel">Your Email Address <b>*</b></label>
-                <input type="email" class="contact-form-input" id="contact-email" />
-              </div>
+    <div class="contact-container grid">
+      
+      <div class="contact-content">
+        
+        <div class="contact-card">
+          <div class="contact-visual">
+            <div class="contact-circle">
+              <i class="ri-map-pin-line"></i>
             </div>
-
-            <div class="contact-form-div">
-                <label for="" class="contact-form-laabel">Your Subject <b>*</b></label>
-                <input type="text" class="contact-form-input" name="Subject" id="contact-subject" />
-              </div>
-
-              <div class="contact-form-div">
-                <label for="" class="contact-form-laabel">Your Message  <b>*</b></label>
-               <textarea name="message" class="contaact-form-input contact-form-area" id="contact-message"></textarea>
-              </div>
-
-              <div class="contact-submit">
-                <span>* Accept the terms and conditions.</span>
-                <button type="submit" class="btn">Send Message</button>
-              </div>
-
-              <p class="message" id="message"></p>
-          </form>
-
-          <div class="section-deco deco-left">
-            <img src="assets/img/shape-1.png" alt="" class="shape" />
+            <span class="contact-line"></span>
+          </div>
+          <div class="contact-data-group">
+            <h3 class="contact-title">Address</h3>
+            <span class="contact-data">North Tower, Toronto, Canada</span>
           </div>
         </div>
-      </section>
+
+        <div class="contact-card">
+          <div class="contact-visual">
+            <div class="contact-circle">
+              <i class="ri-user-line"></i>
+            </div>
+            <span class="contact-line"></span>
+          </div>
+          <div class="contact-data-group">
+            <h3 class="contact-title">Freelance</h3>
+            <span class="contact-data">Available Right Now</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-visual">
+            <div class="contact-circle">
+              <i class="ri-mail-line"></i>
+            </div>
+            <span class="contact-line"></span>
+          </div>
+          <div class="contact-data-group">
+            <h3 class="contact-title">Email</h3>
+            <span class="contact-data">eyitayovictor2022@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-visual">
+            <div class="contact-circle">
+              <i class="ri-phone-line"></i>
+            </div>
+            <span class="contact-line"></span>
+          </div>
+          <div class="contact-data-group">
+            <h3 class="contact-title">Phone</h3>
+            <span class="contact-data">+234-9037835334</span>
+          </div>
+        </div>
+
+      </div>
+
+      <form action="" class="contact-form" id="contact-form">
+        
+        <div class="contact-group">
+          <div class="contact-div">
+            <label class="contact-label">Your full Name <b>*</b></label>
+            <input type="text" class="contact-input" name="user_name" id="contact-name">
+          </div>
+
+          <div class="contact-div">
+            <label class="contact-label">Your Email Address <b>*</b></label>
+            <input type="email" class="contact-input" name="user_email" id="contact-email">
+          </div>
+        </div>
+
+        <div class="contact-div">
+          <label class="contact-label">Your Subject <b>*</b></label>
+          <input type="text" class="contact-input" name="user_subject" id="contact-subject">
+        </div>
+
+        <div class="contact-div">
+          <label class="contact-label">Your Message <b>*</b></label>
+          <textarea name="user_message" id="contact-message" class="contact-input contact-area"></textarea>
+        </div>
+
+        <div class="contact-submit">
+          <p class="terms-text">* Accept the terms and conditions.</p>
+          <button type="submit" class="btn">Send Message</button>
+        </div>
+        
+        <p class="message" id="message"></p>
+      </form>
+    </div>
+  </div>
+</section>
       </main>
       
       <!--=============== FOOTER ===============-->
