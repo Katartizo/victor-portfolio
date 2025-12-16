@@ -91,8 +91,8 @@ const contactForm = document.getElementById('contact-form'),
 
 const sendEmail = (e) => {
     e.preventDefault();
-    // serviceID - templateID - #form - publicKey
-    emailjs.sendForm('service_va8dh2w', 'template_fnquuhg', '#contact-form', 'YOUR_PUBLIC_KEY')
+    // Replace with your actual service ID and Template ID
+    emailjs.sendForm('service_va8dh2w', 'template_fnquuhg', '#contact-form')
     .then(() => {
         contactMessage.textContent = 'Message sent successfully ✅';
         setTimeout(() => {
