@@ -8,6 +8,30 @@ navToggle.addEventListener('click', ( ) => {
     navToggle.classList.toggle('animate-toggle');
 });
 
+
+
+/*=============== SHOW MENU (Mobile) ===============*/
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close'); // We added this
+
+/* Show Menu */
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu');
+    });
+}
+
+/* Hide Menu (Close with X) */
+if(navClose){
+    navClose.addEventListener('click', () =>{
+        navMenu.classList.remove('show-menu');
+    });
+}
+
+
+
+
 /*=============== REMOVE MENU MOBILE ===============*/
 const navwork = document.querySelectorAll('.nav-work');
 
