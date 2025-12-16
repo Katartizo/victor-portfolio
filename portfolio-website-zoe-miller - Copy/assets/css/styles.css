@@ -15,7 +15,7 @@
   --shadow-color: hsla(var(--hue), 80%, 10%, 0.2);
   --body-font: 'Jost', sans-serif;
   --second-font: 'Montserrat Alternates', sans-serif;
-  --big-font-size: 3.5rem;
+  --big-font-size: 3.5rem; /* Reduced for better mobile fit */
   --h1-font-size: 2.25rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
@@ -30,18 +30,6 @@
   --font-black: 800;
   --transition: cubic-bezier(0.3, 0, 0.3, 1);
 }
-
-/*=============== DARK THEME ===============*/
-.dark-theme {
-  --second-hue: 165;
-  --title-color: hsl(var(--second-hue), 0%, 100%);
-  --text-color: hsl(var(--second-hue), 0%, 92%);
-  --body-color: hsl(var(--second-hue), 10%, 16%);
-  --container-color: hsl(var(--second-hue ), 10%, 16%);
-  --border-color: hsl(var(--second-hue), 4%, 65%);
-  --shadow-color: hsla(var(--second-hue), 0%, 100%,  0.2);
-}
-.dark-theme .shape, .dark-theme .card::before { filter: invert(1); }
 
 /*=============== BASE ===============*/
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,38 +48,40 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 .section-title { font-size: var(--h1-font-size); text-align: center; margin-bottom: 2rem; }
 .section-title::after { content: attr(data-title); display: block; color: var(--first-color); font-size: var(--large-font-size); font-family: var(--body-font); margin-top: 0.5rem; }
 
-/*=============== HEADER & NAV (FIXED) ===============*/
+/*=============== HEADER & NAV ===============*/
 .header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--body-color); z-index: 1000; box-shadow: 0 2px 4px var(--shadow-color); }
 .nav { height: 4.5rem; display: flex; justify-content: space-between; align-items: center; position: relative; }
 .nav-logo { color: var(--title-color); font-weight: var(--font-bold); font-family: var(--second-font); font-size: var(--h3-font-size); }
 
-/* NAV BUTTONS WRAPPER (Side-by-Side) */
-.nav-btns { display: flex; align-items: center; column-gap: 1rem; }
-.theme-toggle { font-size: 1.5rem; cursor: pointer; color: var(--title-color); }
-.nav-toggle { font-size: 1.5rem; cursor: pointer; color: var(--title-color); display: flex; align-items: center; }
-
-/* MOBILE MENU (Hidden by default) */
+/* MOBILE MENU (Default) */
 .nav-menu { position: fixed; top: 4.5rem; right: -100%; width: 80%; height: 100%; background-color: var(--container-color); padding: 3rem; transition: .4s; box-shadow: -2px 0 4px var(--shadow-color); z-index: 1000; }
-.show-menu { right: 0; } 
+.show-menu { right: 0; } /* Class to show menu */
 .nav-list { display: flex; flex-direction: column; row-gap: 2rem; }
 .nav-link { color: var(--title-color); font-weight: var(--font-medium); transition: 0.3s; }
 .nav-link:hover, .active-link { color: var(--first-color); }
 
+/* NAV BUTTONS */
+.nav-btns { display: flex; align-items: center; column-gap: 1rem; }
+.theme-toggle { font-size: 1.5rem; cursor: pointer; color: var(--title-color); }
+.nav-toggle { font-size: 1.5rem; cursor: pointer; color: var(--title-color); display: flex; }
+
 /*=============== HOME ===============*/
 .home-container { padding-top: 2rem; }
-.home-content { text-align: center; } 
+.home-content { text-align: center; } /* Center text on mobile */
 .home-title { font-size: var(--big-font-size); line-height: 1.1; margin-bottom: 1rem; }
 .home-title span { color: var(--first-color); }
 .home-subtitle { font-size: var(--h3-font-size); margin-bottom: 0.5rem; }
 .home-description { margin-bottom: 2rem; }
 .home-btns { display: flex; justify-content: center; column-gap: 1rem; margin-bottom: 2rem; }
 
+/* BTN STYLE */
 .btn { display: inline-block; background-color: var(--container-color); color: var(--title-color); padding: 1rem 2rem; border-radius: 3rem; border: 2px solid var(--border-color); font-weight: var(--font-semi-bold); transition: 0.3s; box-shadow: 4px 4px var(--shadow-color); }
 .btn:hover { background-color: var(--first-color); color: var(--white-color); }
 
 /* PROFILE IMAGE & BADGES (Fixed Overlap) */
 .home-banner { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 3rem; }
 
+/* The Image Circle */
 .home-img-wrapper { 
   width: 280px; 
   height: 280px; 
@@ -99,51 +89,49 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   overflow: hidden; 
   border: 5px solid var(--container-color); 
   box-shadow: 0 4px 12px var(--shadow-color);
-  margin-bottom: 1.5rem; 
+  margin-bottom: 2rem; /* Pushes badges down */
 }
 
-/* FIX: Moves the image inside the circle so your head shows */
+/* The Image Itself */
 .home-profile { 
   width: 100%; 
   height: 100%; 
   object-fit: cover; 
-  object-position: top center; 
+  object-position: top center; /* FIX: Shows your full face */
 }
 
-/* FIX: Forces badges to stack UNDER the image on mobile */
+/* The Badges (5+ Years, etc.) */
 .home-data { 
-  position: static; 
-  width: 220px; 
+  position: static; /* FIX: No longer floating */
+  width: 240px; 
   background-color: var(--container-color); 
   padding: 1rem; 
   border-radius: 1.5rem; 
   border: 2px solid var(--border-color); 
   box-shadow: 4px 4px var(--shadow-color); 
   text-align: center; 
-  margin-bottom: 1rem; 
-  transform: none; 
+  margin-bottom: 1rem; /* Space between them */
+  transform: none; /* Reset overlap */
 }
+
 .home-data-no { font-size: 2rem; font-weight: var(--font-bold); color: var(--title-color); display: block; }
 .home-data-title { font-size: var(--small-font-size); }
 
-/* Hide shapes on mobile to prevent covering face */
+/* Hide decorative shapes on mobile to clean up layout */
 .shape { display: none; }
 
-/*=============== SKILLS & WORK (Original Mobile Layout) ===============*/
+/*=============== SKILLS & WORK ===============*/
 .skills-container, .work-container { grid-template-columns: 1fr; justify-content: center; }
 .card { background-color: var(--container-color); padding: 2rem; border-radius: 1.5rem; box-shadow: 4px 4px 16px var(--shadow-color); }
 
-/*=============== RESUME (Original Mobile Layout - Stacked) ===============*/
-.resume-container { grid-template-columns: 1fr; }
+/*=============== RESUME (Fixed Layout) ===============*/
+.resume-container { grid-template-columns: 1fr; } /* Stack vertically */
 .resume-group { margin-bottom: 2rem; }
 .resume-item { margin-bottom: 1.5rem; border-left: 2px solid var(--border-color); padding-left: 1.5rem; position: relative; }
-.resume-header { font-size: var(--h3-font-size); font-weight: var(--font-bold); margin-bottom: 0.5rem; cursor: pointer; }
+.resume-header { font-size: var(--h3-font-size); font-weight: var(--font-bold); margin-bottom: 0.5rem; }
 .resume-date { font-size: var(--small-font-size); color: var(--first-color); margin-bottom: 0.5rem; display: block; }
-.resume-icon { position: absolute; left: -11px; top: 0; background-color: var(--container-color); padding: .25rem; border-radius: 50%; font-size: 1.5rem; color: var(--first-color); border: 2px solid var(--border-color); }
-.resume-content { height: 0; overflow: hidden; transition: .3s; }
-.accordion-open { height: auto; }
 
-/*=============== TESTIMONIALS ===============*/
+/*=============== TESTIMONIALS (Fixed Images) ===============*/
 .testimonials-container { width: 100%; overflow: hidden; }
 .testimonial-img { 
   width: 80px; 
@@ -154,7 +142,7 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   display: block; 
 }
 
-/*=============== CONTACT (Original Mobile Layout) ===============*/
+/*=============== CONTACT (Fixed Inputs) ===============*/
 .contact-container { grid-template-columns: 1fr; }
 .contact-form { display: flex; flex-direction: column; row-gap: 1.5rem; }
 .contact-form-div { width: 100%; }
@@ -171,33 +159,30 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 /*=============== FOOTER ===============*/
 .footer-container { display: flex; flex-direction: column; align-items: center; text-align: center; row-gap: 1.5rem; }
 
-/* ========================================================== */
-/* 🖥️ DESKTOP & TABLET RESTORATION (> 768px)                */
-/* ========================================================== */
-@media screen and (min-width: 768px) {
+/*=============== DESKTOP RESPONSIVE (Only applies to big screens) ===============*/
+@media screen and (min-width: 968px) {
   :root { --big-font-size: 5.5rem; --h1-font-size: 2.75rem; }
   
   .nav { height: 5.5rem; }
-  .nav-toggle { display: none; } /* Hide Hamburger */
+  .nav-toggle { display: none; } /* Hide hamburger on desktop */
   .nav-menu { position: static; width: auto; height: auto; background: transparent; padding: 0; box-shadow: none; display: flex; column-gap: 2rem; }
   .nav-list { flex-direction: row; }
   
   .home-container { grid-template-columns: 1fr 1fr; text-align: left; align-items: center; }
   .home-content { order: 1; }
   .home-banner { order: 2; margin-top: 0; }
-  .home-img-wrapper { width: 450px; height: 450px; border-radius: 0 0 50% 50%; /* Original Shape */ }
+  .home-img-wrapper { width: 450px; height: 450px; border-radius: 0 0 50% 50%; /* Revert to unique shape on desktop */ }
   .home-btns { justify-content: flex-start; }
   
-  /* Floating Badges (Desktop Only) */
+  /* Restore floating badges ONLY on desktop */
   .home-data { position: absolute; width: 220px; margin: 0; }
   .home-data-one { top: 10%; left: -2rem; }
   .home-data-two { bottom: 10%; right: -2rem; }
-  .shape { display: block; } /* Show shapes */
   
-  /* RESTORE ORIGINAL GRID LAYOUTS */
-  .skills-container { grid-template-columns: repeat(3, 1fr); }
-  .work-container { grid-template-columns: repeat(3, 1fr); }
+  .skills-container, .work-container { grid-template-columns: repeat(3, 1fr); }
   .resume-container { grid-template-columns: repeat(2, 1fr); column-gap: 3rem; }
   .contact-container { grid-template-columns: 1fr 1.5fr; }
   .footer-container { flex-direction: row; justify-content: space-between; }
+  
+  .shape { display: block; } /* Show shapes on desktop */
 }
