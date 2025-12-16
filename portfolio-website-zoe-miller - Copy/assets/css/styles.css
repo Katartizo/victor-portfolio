@@ -759,3 +759,40 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   .contact-container { grid-template-columns: 1fr 1.5fr; }
   .footer-container { flex-direction: row; justify-content: space-between; }
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/* ✂️ SHAPE LIMITER: Keep only ONE shape per section ✂️   */
+/* ======================================================= */
+
+/* 1. Hide the second and third shapes in Portfolio (Work) */
+#work .shape-2, 
+#work .shape-3,
+#work .deco-right { 
+    display: none !important; 
+}
+
+/* 2. Hide extra shapes in Testimonials */
+#testimonials .shape-2, 
+#testimonials .shape-3 { 
+    display: none !important; 
+}
+
+/* 3. Hide extra shapes in Services */
+#services .shape-2, 
+#services .shape-3,
+#services .deco-right { 
+    display: none !important; 
+}
+
+/* 4. Ensure the ONE remaining shape is positioned nicely (Optional adjustment) */
+#work .shape-1, 
+#testimonials .shape-1, 
+#services .shape-1 {
+    opacity: 0.5; /* Make it subtle so it doesn't fight with text */
+}
