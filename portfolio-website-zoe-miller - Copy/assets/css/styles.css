@@ -1241,3 +1241,78 @@ footer {
 }
 
 
+
+
+
+
+/* ======================================================= */
+/* ⬇️ PASTE THIS AT THE VERY BOTTOM OF STYLES.CSS ⬇️      */
+/* ======================================================= */
+
+@media screen and (max-width: 900px) {
+
+  /* 1. FIX THE MISSING NAV MENU (Hamburger Icon) */
+  .nav-toggle {
+    display: block !important;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  /* 2. FIX THE CONTACT FORM (Inputs were too short) */
+  .contact-form,
+  .contact-group,
+  .contact-form-div {
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  .contact-form-input {
+    width: 100% !important; /* Force inputs to fill the screen width */
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form-area {
+    height: 140px !important;
+  }
+
+  /* 3. FIX THE GIANT PROFILE PICTURE */
+  .home-img-wrapper {
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 50% !important;
+    margin: 0 auto 2rem !important;
+  }
+
+  /* 4. FIX THE RESUME SCATTERING */
+  .resume-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  
+  /* Remove the line causing the overlap */
+  .resume-container::before {
+    display: none !important;
+  }
+
+  /* 5. FIX THE FLOATING "YEARS OF EXPERIENCE" BADGES */
+  .home-data {
+    position: static !important; /* Stop them from floating */
+    width: 100% !important;
+    transform: none !important;
+    margin: 10px auto !important;
+    text-align: center;
+  }
+
+  /* 6. FIX TESTIMONIAL IMAGES (Gray Box Issue) */
+  .testimonial-img {
+    width: 80px !important;
+    height: 80px !important;
+    display: block !important;
+    margin: 0 auto 1rem !important;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
