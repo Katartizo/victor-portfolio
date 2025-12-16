@@ -167,7 +167,7 @@ const sendEmail = (e) => {
     } else {
         // 2. If fields are full, Send Email
         // 👇👇 PASTE YOUR PUBLIC KEY HERE 👇👇
-        emailjs.sendForm('service_va8dh2w', 'template_fnquuhg', '#contact-form', 'YOUR_PUBLIC_KEY_HERE')
+        emailjs.sendForm('service_xa0yr79', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
                 // Show success message
                 message.classList.add('color-blue');
