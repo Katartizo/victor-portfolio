@@ -1496,3 +1496,106 @@ footer {
     display: block !important;
   }
 }
+
+
+
+
+/* ================================================================= */
+/* 🛑 FINAL MOBILE RESET - PASTE AT THE VERY BOTTOM OF CSS 🛑 */
+/* ================================================================= */
+
+@media screen and (max-width: 992px) {
+
+  /* 1. FIX THE OVERLAP (CRITICAL) */
+  /* This stops the image from floating on top of the text */
+  .home-banner {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 2. FIX PROFILE PICTURE (HEAD CUT & SIZE) */
+  .home-img-wrapper {
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 50% !important;
+    margin: 0 auto 2rem !important;
+    position: relative !important;
+  }
+
+  .home-profile {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important; /* Shows full face */
+  }
+
+  /* 3. FIX THE FLOATING BADGES (5+ Years / 10 Projects) */
+  /* Force them to sit neatly under the image */
+  .home-data {
+    position: static !important; /* Stop floating! */
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    padding: 1rem !important;
+    margin: 1rem auto !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--container-color);
+    z-index: 1;
+  }
+
+  /* 4. FIX THE MISSING NAV MENU (Hamburger) */
+  .nav-toggle {
+    display: flex !important; /* Force visibility */
+    font-size: 2rem;
+    color: var(--title-color); /* Make it dark so it's visible */
+    z-index: 99999; /* Put it on top of everything */
+    cursor: pointer;
+  }
+  
+  .nav-menu {
+    padding-top: 5rem; /* Space for close button */
+  }
+
+  /* 5. FIX THE RESUME SCATTER */
+  .resume-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  
+  .resume-container::before {
+    display: none !important; /* Hide the overlapping line */
+  }
+
+  /* 6. FIX THE FOOTER (SCATTERED TEXT) */
+  .footer-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .footer-copyright {
+    margin: 0 !important;
+  }
+
+  /* 7. FIX TESTIMONIAL IMAGE SIZE */
+  .testimonial-img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    display: block !important;
+  }
+}
