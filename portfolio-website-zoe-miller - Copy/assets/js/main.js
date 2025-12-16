@@ -95,7 +95,6 @@ function activeWork() {
 
 linkWork.forEach((a) => a.addEventListener('click', activeWork));
 
-
 /*=============== RESUME ===============*/
 const accordionItems = document.querySelectorAll('.resume-item');
 
@@ -113,7 +112,7 @@ accordionItems.forEach((item) => {
         accordionItems.forEach((otherItem) => {
             if (otherItem !== item && otherItem.classList.contains('accordion-open')) {
                 otherItem.querySelector('.resume-content').style.height = '0';
-                otherItem.querySelector('.resume-icon i').classList = 'ri-add-line';
+                otherItem.querySelector('.resume-icon i').className = 'ri-add-line';
                 otherItem.classList.remove('accordion-open'); 
             }
         });
