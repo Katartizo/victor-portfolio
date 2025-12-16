@@ -10,18 +10,6 @@ navToggle.addEventListener('click', ( ) => {
 
 
 
-/*=============== SHOW MENU (Mobile) ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close'); // We added this
-
-/* Show Menu */
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu');
-    });
-}
-
 /* Hide Menu (Close with X) */
 if(navClose){
     navClose.addEventListener('click', () =>{
