@@ -796,3 +796,44 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 #services .shape-1 {
     opacity: 0.5; /* Make it subtle so it doesn't fight with text */
 }
+
+
+/* ======================================================= */
+/* 🛠️ FIX SHAPES & TEXT ALIGNMENT 🛠️                     */
+/* ======================================================= */
+
+/* 1. HIDE ALL Background Floating Shapes in Portfolio, Services, Testimonials */
+/* This removes the "more than 1" clutter so you only see the white cards */
+#work .shape, 
+#work .section-deco,
+#services .shape, 
+#services .section-deco,
+#testimonials .shape, 
+#testimonials .section-deco {
+    display: none !important;
+}
+
+/* 2. FIX THE CARD DOTS (Prevent Text Overlap) */
+.card {
+    padding-bottom: 2rem !important; /* Add space at bottom */
+    z-index: 1;
+}
+
+.card::after {
+    /* Make the dots smaller and tuck them in the corner */
+    width: 80px !important; 
+    height: 80px !important;
+    right: -10px !important; /* Push slightly off edge for cleaner look */
+    bottom: -10px !important;
+    opacity: 0.4 !important; /* Make them subtle so text is readable */
+    z-index: -1; /* Send them behind the text */
+}
+
+/* 3. Ensure Text sits ON TOP of the dots */
+.work-description, 
+.services-description, 
+.testimonial-description {
+    position: relative;
+    z-index: 10; /* Text is always on top */
+    margin-bottom: 2rem; /* Give text space from the bottom elements */
+}
