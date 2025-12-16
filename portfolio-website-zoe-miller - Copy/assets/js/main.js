@@ -139,38 +139,53 @@ var testimonialsSwiper = new Swiper('.testimonials-swiper', {
 });
 
 
-/*=============== EMAIL JS (FIXED) ===============*/
+/*=============== EMAIL JS & VALIDATION (FIXED) ===============*/
 const contactForm = document.getElementById('contact-form'),
+      contactName = document.getElementById('contact-name'),
+      contactEmail = document.getElementById('contact-email'),
+      contactSubject = document.getElementById('contact-subject'), /* Matches HTML ID now */
+      contactMessage = document.getElementById('contact-message'),
       message = document.getElementById('message');
 
 const sendEmail = (e) => {
     e.preventDefault();
-    
-    // 🔴 STEP 1: Paste your SERVICE ID inside the quotes below (replace 'service_xxxxx')
-    const serviceID = 'service_xa0yr79'; 
 
-    // 🔴 STEP 2: Paste your TEMPLATE ID inside the quotes below (replace 'template_xxxxx')
-    const templateID = 'template_hnvn4u7';
+    // 1. Check if any field is empty
+    if(contactName.value === '' || contactEmail.value === '' || contactSubject.value === '' || contactMessage.value === ''){
+        
+        // Add color (red)
+        message.classList.remove('color-blue');
+        message.classList.add('color-red');
 
-    // 🔴 STEP 3: Paste your PUBLIC KEY inside the quotes below (replace 'YOUR_PUBLIC_KEY')
-    const publicKey = 'ELFrx7vVcXdL9U6os';
+        // Show text
+        message.textContent = 'Write all the input fields 📩';
 
-    // Send the email
-    emailjs.sendForm(serviceID, templateID, '#contact-form', publicKey)
-    .then(() => {
-        // Success
-        message.textContent = 'Message sent successfully ✅';
-        message.style.color = 'green';
-        setTimeout(() => { message.textContent = '' }, 5000);
-        contactForm.reset();
-    }, (error) => {
-        // Error
-        alert('OPs! SOMETHING WENT WRONG... Please check your EmailJS Keys in main.js', error);
-        console.log('FAILED...', error);
-    });
+        // Remove message after 3 seconds
+        setTimeout(() => {
+            message.textContent = '';
+        }, 3000);
+    } else {
+        // 2. If fields are full, Send Email
+        // 👇👇 PASTE YOUR PUBLIC KEY HERE 👇👇
+        emailjs.sendForm('service_va8dh2w', 'template_fnquuhg', '#contact-form', 'YOUR_PUBLIC_KEY_HERE')
+            .then(() => {
+                // Show success message
+                message.classList.add('color-blue');
+                message.textContent = 'Message sent ✅';
+
+                // Remove message after 5 seconds
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 5000);
+
+                // Clear input fields
+                contactForm.reset();
+            }, (error) => {
+                alert('OPs! SOMETHING WENT WRONG...', error);
+            });
+    }
 }
 if(contactForm) contactForm.addEventListener('submit', sendEmail);
-
 
 
 
