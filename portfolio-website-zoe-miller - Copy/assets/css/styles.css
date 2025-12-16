@@ -1059,3 +1059,15 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   color: hsl(5, 69%, 51%) !important;
   font-weight: bold;
 }
+
+
+/* Close Button (Inside the Menu) */
+.nav-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  cursor: pointer;
+  color: var(--title-color);
+  width: 30px;
+  height: 30px;
+}
