@@ -971,3 +971,18 @@ button, input, textarea { border: none; outline: none; background-color: transpa
     z-index: 10; /* Text is always on top */
     margin-bottom: 2rem; /* Give text space from the bottom elements */
 }
+
+
+/* ======================================================= */
+/* 🔴 ERROR STYLES (Paste at the bottom of styles.css) 🔴 */
+/* ======================================================= */
+
+.input-error {
+  border: 2px solid hsl(5, 69%, 51%) !important; /* Red Border */
+}
+
+/* This makes the "Write all inputs" text red inside the box */
+.input-error::placeholder {
+  color: hsl(5, 69%, 51%) !important;
+  font-weight: bold;
+}
