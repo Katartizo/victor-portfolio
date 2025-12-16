@@ -802,8 +802,10 @@ textarea {
 
 /*=============== RESUME ===============*/
 .resume-container {
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 1.5rem;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.5rem; / spacing /
+ column-gap: 1.5rem; / optional /
 }
 
 .resume-title {
