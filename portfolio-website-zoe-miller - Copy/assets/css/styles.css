@@ -1316,3 +1316,92 @@ footer {
     border-radius: 50%;
   }
 }
+
+
+
+
+
+/* ============================================================ */
+/* 🚨 EMERGENCY MOBILE FIXES (Paste at the bottom of styles.css) */
+/* ============================================================ */
+
+@media screen and (max-width: 900px) {
+  
+  /* --- 1. FIX PROFILE PICTURE (HEAD CUT OFF) --- */
+  .home-img-wrapper {
+    width: 280px !important;
+    height: 280px !important;
+    border-radius: 50% !important; /* Make it a perfect circle */
+    margin: 0 auto 2rem !important;
+  }
+
+  .home-profile {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important; /* THIS FIXES THE HEAD CUT */
+  }
+
+  /* --- 2. FIX OVERLAPPING BADGES (5+ Years / 10 Projects) --- */
+  /* This moves them DOWN so they don't cover your name/buttons */
+  .home-data {
+    position: static !important; /* Stop floating */
+    transform: none !important;
+    margin: 1rem auto !important; /* Add space */
+    width: 200px !important;
+    display: flex !important;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* --- 3. FIX RESUME (SCATTERED LINES) --- */
+  /* On mobile, side-by-side is too small. We stack them cleanly. */
+  .resume-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3rem !important;
+  }
+  
+  /* Remove the vertical line that cuts through text */
+  .resume-container::before {
+    display: none !important;
+  }
+
+  /* --- 4. FIX CONTACT FORM (INPUTS TOO SMALL) --- */
+  .contact-form, .contact-group {
+    width: 100% !important;
+    display: block !important;
+  }
+  
+  .contact-form-input {
+    width: 100% !important; /* Make typing box full width */
+    margin-bottom: 1rem !important;
+  }
+  
+  .contact-form-area {
+    height: 150px !important;
+  }
+
+  /* --- 5. FIX NAV BAR (HAMBURGER MENU) --- */
+  .nav-toggle {
+    display: block !important;
+    font-size: 2rem !important;
+    color: var(--title-color);
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+  .nav-menu {
+    padding-top: 4rem; /* Give space for the close button */
+  }
+  
+  /* --- 6. FIX TESTIMONIAL IMAGES --- */
+  .testimonial-img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    display: block !important;
+  }
+}
