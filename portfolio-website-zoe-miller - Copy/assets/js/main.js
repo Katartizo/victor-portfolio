@@ -139,56 +139,38 @@ var testimonialsSwiper = new Swiper('.testimonials-swiper', {
 });
 
 
-/*=============== EMAIL JS ===============*/
+
+/*=============== EMAIL JS (FIXED) ===============*/
 const contactForm = document.getElementById('contact-form'),
-contactName = document.getElementById('contact-name'),
-contactEmail = document.getElementById('contact-email'),
-contactSubject = document.getElementById('contact-subject'),
-contactMessage = document.getElementById('contact-message'),
-message = document.getElementById('message');
+      message = document.getElementById('message');
 
 const sendEmail = (e) => {
     e.preventDefault();
+    
+    // 🔴 STEP 1: Paste your SERVICE ID inside the quotes below (replace 'service_xxxxx')
+    const serviceID = 'service_xa0yr79'; 
 
-    if ( 
-        contactName.value === '' || 
-        contactEmail.value === ''  || 
-        contactSubject.value === '' || 
-        contactMessage.value === '' 
-    ) {
-        message.classList.remove('color-first');
-        message.textContent = 'Write all the input fields';
-        message.classList.add('color-red');
+    // 🔴 STEP 2: Paste your TEMPLATE ID inside the quotes below (replace 'template_xxxxx')
+    const templateID = 'template_hnvn4u7';
 
-        setTimeout(() => {
-           message.textContent = ''; 
-        }, 3000);    
-    } else {
-        emailjs
-        .sendForm('service_va8dh2w',  'template_fnquuhg',  'contact-form')
-        .then(
-            () => {
-                message.textContent = 'Message sent ✔';
-                message.classList.add('color-first');
+    // 🔴 STEP 3: Paste your PUBLIC KEY inside the quotes below (replace 'YOUR_PUBLIC_KEY')
+    const publicKey = 'ELFrx7vVcXdL9U6os';
 
-                setTimeout(() => {
-           message.textContent = ''; 
-        }, 5000);    
-            },
-            (error) => {
-                alert('OPs! SOMETHING WENT WRONG...', error);
-            }
-        );
-
-        contactName.value = '';
-        contactEmail.value = '';
-        contactSubject.value = '';
-        contactMessage.value = '';
-    }
-};
-
-contactForm.addEventListener('submit', sendEmail);
-
+    // Send the email
+    emailjs.sendForm(serviceID, templateID, '#contact-form', publicKey)
+    .then(() => {
+        // Success
+        message.textContent = 'Message sent successfully ✅';
+        message.style.color = 'green';
+        setTimeout(() => { message.textContent = '' }, 5000);
+        contactForm.reset();
+    }, (error) => {
+        // Error
+        alert('OPs! SOMETHING WENT WRONG... Please check your EmailJS Keys in main.js', error);
+        console.log('FAILED...', error);
+    });
+}
+if(contactForm) contactForm.addEventListener('submit', sendEmail);
 
 
 
