@@ -139,46 +139,46 @@ var testimonialsSwiper = new Swiper('.testimonials-swiper', {
 });
 
 
-/*=============== EMAIL JS & VALIDATION (FIXED) ===============*/
+/*=============== EMAIL JS (ERROR INSIDE INPUTS) ===============*/
 const contactForm = document.getElementById('contact-form'),
       contactName = document.getElementById('contact-name'),
       contactEmail = document.getElementById('contact-email'),
-      contactSubject = document.getElementById('contact-subject'), /* Matches HTML ID now */
+      contactSubject = document.getElementById('contact-subject'),
       contactMessage = document.getElementById('contact-message'),
       message = document.getElementById('message');
 
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // 1. Check if any field is empty
-    if(contactName.value === '' || contactEmail.value === '' || contactSubject.value === '' || contactMessage.value === ''){
-        
-        // Add color (red)
-        message.classList.remove('color-blue');
-        message.classList.add('color-red');
+    // 1. Create a list of your inputs
+    const inputs = [contactName, contactEmail, contactSubject, contactMessage];
+    let hasError = false;
 
-        // Show text
-        message.textContent = 'Write all the input fields 📩';
+    // 2. Check each input. If empty, turn it RED and show message INSIDE.
+    inputs.forEach(input => {
+        if(input.value === ''){
+            hasError = true;
+            input.classList.add('input-error'); // Turns border red (from CSS)
+            input.placeholder = 'Write all the input fields'; // Shows message inside
+        }
+    });
 
-        // Remove message after 3 seconds
+    if(hasError){
+        // 3. Remove the red error after 3 seconds
         setTimeout(() => {
-            message.textContent = '';
+            inputs.forEach(input => {
+                input.classList.remove('input-error');
+                input.placeholder = ''; // Clear the message
+            });
         }, 3000);
     } else {
-        // 2. If fields are full, Send Email
-        // 👇👇 PASTE YOUR PUBLIC KEY HERE 👇👇
+        // 4. If no errors, Send Email
+        // 👇👇 PASTE YOUR KEYS HERE 👇👇
         emailjs.sendForm('service_xa0yr79', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
-                // Show success message
-                message.classList.add('color-blue');
-                message.textContent = 'Message sent ✅';
-
-                // Remove message after 5 seconds
-                setTimeout(() => {
-                    message.textContent = '';
-                }, 5000);
-
-                // Clear input fields
+                message.textContent = 'Message sent successfully ✅';
+                message.style.color = 'green';
+                setTimeout(() => { message.textContent = '' }, 5000);
                 contactForm.reset();
             }, (error) => {
                 alert('OPs! SOMETHING WENT WRONG...', error);
@@ -186,7 +186,6 @@ const sendEmail = (e) => {
     }
 }
 if(contactForm) contactForm.addEventListener('submit', sendEmail);
-
 
 
 
