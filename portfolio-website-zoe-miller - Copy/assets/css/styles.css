@@ -713,12 +713,12 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 
 /*=============== CONTACT ===============*/
 .contact-container {
-  grid-template-columns: 4fr 8fr; /* Left side smaller, Right side wider */
+  grid-template-columns: 4fr 8fr;
   gap: 3rem;
   align-items: flex-start;
 }
 
-/* --- Left Side: Info Icons --- */
+/* --- LEFT SIDE: The Circles and Lines --- */
 .contact-content {
   display: flex;
   flex-direction: column;
@@ -728,47 +728,43 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 .contact-card {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Space between icon group and text */
+  gap: 1rem;
 }
 
-.contact-icon-box {
-  position: relative;
+/* Holds the Circle and the Line */
+.contact-visual {
   display: flex;
   align-items: center;
 }
 
-/* The Circular Icon */
-.contact-icon {
+/* The Big Circle */
+.contact-circle {
   width: 50px;
   height: 50px;
-  border: 2px solid var(--title-color); /* Dark border like image */
   border-radius: 50%;
+  border: 2px solid var(--title-color); /* Dark border */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   color: var(--title-color);
-  background-color: var(--body-color);
-  z-index: 10;
+  background-color: var(--body-color); /* Matches background */
+  z-index: 10; /* Sits on top */
 }
 
-/* The Connector Line (---) */
-.contact-icon-box::after {
-  content: '';
-  position: absolute;
-  left: 100%; /* Start right after the circle */
-  top: 50%;
+/* The Connector Line */
+.contact-line {
   width: 20px; /* Length of the line */
   height: 2px;
-  background-color: var(--title-color);
-  transform: translateY(-50%);
+  background-color: var(--title-color); /* Dark line */
+  display: block;
 }
 
 .contact-title {
   font-size: var(--h3-font-size);
   font-weight: var(--font-bold);
-  margin-bottom: 0.25rem;
   color: var(--title-color);
+  margin-bottom: 0.25rem;
 }
 
 .contact-data {
@@ -777,17 +773,17 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   display: block;
 }
 
-/* --- Right Side: The Form --- */
+/* --- RIGHT SIDE: The Form --- */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Side-by-Side Name & Email */
+/* Name & Email Group */
 .contact-group {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Side by Side */
   gap: 1.5rem;
 }
 
@@ -806,31 +802,30 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   color: var(--title-color);
 }
 
-/* The Input Fields (Rounded Borders like image) */
+/* The Round "Pill" Inputs */
 .contact-input {
   width: 100%;
   background: transparent;
-  border: 2px solid var(--title-color); /* Dark border */
+  border: 2px solid var(--title-color); /* Dark thick border */
   padding: 1rem 1.5rem;
-  border-radius: 3rem; /* Fully rounded pill shape */
+  border-radius: 50px; /* Fully rounded ends */
   color: var(--text-color);
   font-weight: var(--font-medium);
   outline: none;
   transition: 0.3s;
 }
 
-/* Textarea specific style */
+/* Textarea (Less rounded) */
 .contact-area {
   height: 120px;
   resize: none;
-  border-radius: 1.5rem; /* Less rounded for box */
+  border-radius: 1.5rem;
 }
 
 .contact-input:focus {
   border-color: var(--first-color);
 }
 
-/* Submit Area */
 .contact-submit {
   display: flex;
   align-items: center;
@@ -843,24 +838,20 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   color: var(--text-color);
 }
 
-/* --- Mobile Stack (Responsive) --- */
+/* --- MOBILE RESPONSIVE --- */
 @media screen and (max-width: 900px) {
   .contact-container {
-    grid-template-columns: 1fr; /* Stack vertically */
+    grid-template-columns: 1fr; /* Stack Left and Right sections */
   }
   
+  /* On mobile, stack Name and Email inputs so they aren't squished */
   .contact-group {
-    grid-template-columns: 1fr; /* Inputs stack on mobile */
+    grid-template-columns: 1fr; 
   }
   
   .contact-submit {
-    flex-direction: column-reverse; /* Button top, text bottom */
+    flex-direction: column-reverse;
     gap: 1rem;
-    text-align: center;
-  }
-  
-  .contact-icon-box::after {
-    display: none; /* Hide connector line on mobile if it gets too cramped */
   }
 }
 
