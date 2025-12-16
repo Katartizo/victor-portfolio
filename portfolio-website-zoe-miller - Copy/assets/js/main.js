@@ -174,7 +174,7 @@ const sendEmail = (e) => {
     } else {
         // 4. If no errors, Send Email
         // 👇👇 PASTE YOUR KEYS HERE 👇👇
-        emailjs.sendForm('service_xa0yr79', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
+        emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
                 message.textContent = 'Message sent successfully ✅';
                 message.style.color = 'green';
