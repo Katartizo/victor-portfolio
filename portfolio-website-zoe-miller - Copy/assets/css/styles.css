@@ -1136,3 +1136,41 @@ footer {
 
 
 
+/* ================================================== */
+/* FINAL RESUME FIX (MOBILE ONLY)              */
+/* ================================================== */
+
+@media screen and (max-width: 900px) {
+  
+  /* 1. FORCE Single Column Layout */
+  .resume-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* One column only */
+    gap: 3rem !important; /* Space between Education and Experience */
+    width: 100% !important;
+  }
+
+  /* 2. HIDE the vertical line that cuts through the text */
+  .resume-container::before {
+    display: none !important; 
+  }
+
+  /* 3. Make the groups (Education/Experience) full width */
+  .resume-group {
+    width: 100% !important;
+    text-align: left; /* Ensure text aligns normally */
+  }
+
+  /* 4. Ensure the items inside don't get squashed */
+  .resume-item {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 5. Fix the Title Spacing */
+  .section-title {
+    font-size: 2rem; /* Make title slightly smaller to fit */
+    margin-bottom: 2rem;
+  }
+}
