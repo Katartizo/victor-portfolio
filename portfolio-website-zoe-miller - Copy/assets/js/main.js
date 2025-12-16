@@ -9,17 +9,6 @@ navToggle.addEventListener('click', ( ) => {
 });
 
 
-
-/* Hide Menu (Close with X) */
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu');
-    });
-}
-
-
-
-
 /*=============== REMOVE MENU MOBILE ===============*/
 const navwork = document.querySelectorAll('.nav-work');
 
