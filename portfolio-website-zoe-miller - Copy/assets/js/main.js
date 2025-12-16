@@ -139,7 +139,6 @@ var testimonialsSwiper = new Swiper('.testimonials-swiper', {
 });
 
 
-
 /*=============== EMAIL JS (FIXED) ===============*/
 const contactForm = document.getElementById('contact-form'),
       message = document.getElementById('message');
@@ -171,6 +170,8 @@ const sendEmail = (e) => {
     });
 }
 if(contactForm) contactForm.addEventListener('submit', sendEmail);
+
+
 
 
 
