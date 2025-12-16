@@ -252,10 +252,136 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 
 /*=============== WORK (PORTFOLIO) ===============*/
 .work-container {
-  grid-template-columns: 1fr; /* Mobile default */
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 2rem;
 }
+
+/* Filter Menu */
+.work-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 2.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.work-item {
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+.work-item:hover {
+  color: var(--first-color);
+}
+
+.active-work {
+  color: var(--title-color);
+}
+
+.active-work::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--first-color); /* Green Line */
+  border-radius: 2px;
+}
+
+/* --- THE CARD STYLE (Matches "Gooir" Image) --- */
+.card {
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px hsla(var(--hue), 80%, 10%, 0.1);
+  transition: .3s;
+  position: relative; /* Needed for dots */
+  overflow: hidden; /* Keeps dots inside rounded corners */
+}
+
+/* The Dots Decoration (Bottom Right) */
+.card::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+  background-image: url(../img/shape-3.png); /* Ensure this file exists! */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.work-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.work-category {
+  font-size: var(--small-font-size);
+  color: var(--first-color); /* Green Text */
+  font-weight: var(--font-bold);
+  margin-bottom: 0.5rem;
+  display: block;
+  text-transform: capitalize;
+}
+
+.work-title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+
+.work-description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* "See pricing" Link */
+.link {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  color: var(--title-color);
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  transition: .3s;
+}
+
+.link-icon {
+  color: var(--first-color); /* Green Arrow */
+  font-size: 1.2rem;
+  transition: .3s;
+}
+
+.link:hover .link-icon {
+  transform: translateX(0.25rem);
+}
+
+/* Desktop Grid */
+@media screen and (min-width: 768px) {
+  .work-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 
 /* --- Filter Menu (All, Photography, etc.) --- */
 .work-list {
