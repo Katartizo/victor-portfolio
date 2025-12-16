@@ -121,6 +121,118 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 .home-data-title { font-size: var(--small-font-size); }
 .shape { display: none; }
 
+
+
+
+/*=============== SERVICES ===============*/
+.services-container {
+  padding-top: 1rem;
+}
+
+.section-title-center {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* The Card Style (White box) */
+.card {
+  background-color: var(--container-color);
+  padding: 3rem 2.5rem; /* Large padding like the image */
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 16px hsla(var(--hue), 80%, 10%, 0.1);
+  position: relative;
+  overflow: hidden; /* Keeps the dots inside */
+  height: 100%;
+}
+
+/* The Decorative Dots (Bottom Right) */
+.card::before {
+  content: '';
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 100px; /* Size of the dots area */
+  height: 100px;
+  background-image: url(../img/shape-3.png); /* Ensure this file exists! */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.8;
+}
+
+/* "Web Development" Small Text */
+.services-subtitle {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+/* "Web Design" Big Title */
+.services-title {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-bold);
+  color: var(--title-color);
+  margin-bottom: 1.5rem;
+}
+
+/* Description Text */
+.services-description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* "See Pricing" Link */
+.link {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  color: var(--title-color); /* Dark text */
+  font-weight: var(--font-bold);
+  font-size: var(--small-font-size);
+  transition: 0.3s;
+}
+
+/* The Arrow Icon (Green) */
+.link-icon {
+  color: var(--first-color); /* Green arrow */
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+/* Hover Effect */
+.link:hover .link-icon {
+  transform: translateX(0.5rem); /* Move arrow right */
+}
+
+/* Swiper Pagination (Dots) */
+.swiper-pagination {
+  position: initial;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: 2px solid var(--title-color);
+  opacity: 1;
+  margin: 0 6px !important;
+  transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--first-color); /* Green active dot */
+  border-color: var(--first-color);
+  transform: scale(1.2);
+}
+
+
 /*=============== PROFESSIONAL SKILLS (MATCHING YOUR IMAGE) ===============*/
 .skills-container { grid-template-columns: 1fr; row-gap: 2rem; }
 .skills-item { margin-bottom: 1rem; }
