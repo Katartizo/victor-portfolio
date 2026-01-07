@@ -1125,3 +1125,26 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 body.dark-theme .skills-item {
   border: 1px solid rgba(255, 255, 255, 0.05); /* Lighter border for dark mode */
 }
+
+/* ================= MY CUSTOM UPDATES ================= */
+
+.work-icon-box {
+  /* Soft grey background to hold the space */
+  background-color: var(--container-color); 
+  width: 100%;
+  height: 180px; /* Nice rectangle shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  
+  /* A very subtle border to define the edges */
+  border: 2px dashed rgba(0, 0, 0, 0.1); 
+}
+
+/* Make the icon pop when you hover over the card */
+.work-card:hover .work-icon-box i {
+  transform: scale(1.1); /* Icon grows slightly */
+  transition: .3s;
+}
