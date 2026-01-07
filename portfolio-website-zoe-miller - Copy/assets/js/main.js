@@ -205,3 +205,16 @@ themeButton.addEventListener('click',  () => {
     document.body.classList.toggle('dark-theme');
     themeButton.classList.toggle('ri-sun-line');
 });
+
+
+
+/* =============== REMOVE MENU MOBILE ON CLICK =============== */
+const navLink = document.querySelectorAll('.nav-link') // I changed this to match your HTML
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // This removes the class that makes the menu visible
+    // Note: Ensure your CSS uses 'show-menu' to display the mobile nav
+    navMenu.classList.remove('show-menu') 
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
