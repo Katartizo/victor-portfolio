@@ -1,6 +1,10 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100..900&family=Montserrat+Alternates:wght@600;700;800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   --hue: 165;
