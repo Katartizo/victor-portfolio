@@ -1075,3 +1075,53 @@ button, input, textarea { border: none; outline: none; background-color: transpa
   width: 30px;
   height: 30px;
 }
+
+
+
+/* ================= SKILLS CARDS LAYOUT ================= */
+
+.skills-container {
+  /* This creates the grid (2 columns on tablet, 3 on desktop) */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 2rem; /* Space between cards */
+}
+
+.skills-item {
+  /* Card styling */
+  background-color: var(--container-color); /* Matches your theme */
+  border: 1px solid rgba(0, 0, 0, 0.05);    /* Very subtle border */
+  padding: 1.5rem 2rem;
+  border-radius: 1.25rem;                   /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  transition: .3s;                          /* Smooth animation */
+}
+
+/* Hover Effect: The card 'lifts' up when you touch it */
+.skills-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
+}
+
+.skills-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skills-name {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.skills-description {
+  font-size: var(--small-font-size);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Dark Mode Adjustment (Optional but recommended) */
+body.dark-theme .skills-item {
+  border: 1px solid rgba(255, 255, 255, 0.05); /* Lighter border for dark mode */
+}
