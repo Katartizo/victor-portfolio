@@ -1530,3 +1530,52 @@ body.dark-theme .skills-item {
     color: var(--title-color);
   }
 }
+
+
+
+/* ================================================== */
+/* 🚀 FIX: PREVENT HAMBURGER & CLOSE OVERLAP 🚀       */
+/* ================================================== */
+
+/* 1. Mobile Menu Styling */
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--body-color);
+    width: 100%;
+    height: 100%;
+    padding: 6rem 3rem; /* Extra spacing so menu items aren't hidden */
+    transition: .4s;
+    z-index: 2000; /* Higher than everything */
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  /* 2. Position the Close 'X' Button top-right */
+  .nav-close {
+    position: absolute;
+    top: 1.5rem; 
+    right: 1.5rem;
+    font-size: 2rem;
+    color: var(--title-color);
+    cursor: pointer;
+    display: block;
+    z-index: 2001; /* Sits on top of the menu */
+  }
+
+  /* 3. The Toggle Button (Hamburger) */
+  .nav-toggle {
+    display: flex;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1500; /* Lower than menu, so menu covers it */
+  }
+}
+
+/* 4. Slide Animation */
+.show-menu {
+  right: 0 !important;
+}
