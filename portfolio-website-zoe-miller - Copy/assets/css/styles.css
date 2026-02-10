@@ -1232,3 +1232,68 @@ body.dark-theme .skills-item {
     padding: 6rem 0 2rem;
   }
 }
+
+
+/*=============== CONTACT FORM STYLES ===============*/
+.contact-form-div {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form-tag {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-medium);
+}
+
+.contact-form-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--border-color);
+  background-color: var(--container-color);
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form-input::placeholder {
+  color: var(--text-color);
+}
+
+/* Focus state for inputs */
+.contact-form-input:focus {
+  border-color: var(--first-color);
+}
+
+/* Error state for inputs */
+.input-error {
+  border-color: red;
+}
+
+.input-error::placeholder {
+  color: red;
+}
+
+.contact-form-area textarea {
+  height: 11rem;
+  resize: none;
+}
+
+.contact-button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.contact-message {
+  font-size: var(--small-font-size);
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+}
+
+/* Dark theme adjustments for inputs */
+.dark-theme .contact-form-input {
+  background-color: var(--container-color);
+}
