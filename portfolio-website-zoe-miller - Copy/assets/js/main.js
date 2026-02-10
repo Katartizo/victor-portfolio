@@ -1,66 +1,67 @@
-/*=============== SHOW SIDEBAR ===============*/
+/*=============== SHOW MENU (Your Original Logic) ===============*/
 const navMenu = document.getElementById('nav-menu'),
       navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close')
+      navClose = document.getElementById('nav-close');
 
-/*===== MENU SHOW =====*/
-if(navToggle){
-    navToggle.addEventListener('click', () =>{
-        navMenu.classList.add('show-menu')
-    })
+/* Menu show - hidden */
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('show-menu');
+        navToggle.classList.toggle('animate-toggle');
+    });
 }
 
-/*===== MENU HIDDEN =====*/
-if(navClose){
-    navClose.addEventListener('click', () =>{
-        navMenu.classList.remove('show-menu')
-    })
+/* Menu hidden */
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu');
+        if (navToggle) navToggle.classList.remove('animate-toggle');
+    });
 }
 
-/*=============== REMOVE MENU MOBILE ON LINK CLICK ===============*/
-const navLink = document.querySelectorAll('.nav-link')
+/*=============== REMOVE MENU MOBILE ON CLICK ===============*/
+const navLink = document.querySelectorAll('.nav-link');
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
+const linkAction = () => {
+    const navMenu = document.getElementById('nav-menu');
     // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show-menu')
-}
-navLink.forEach(n => n.addEventListener('click', linkAction))
-
+    navMenu.classList.remove('show-menu');
+    if (navToggle) navToggle.classList.remove('animate-toggle');
+};
+navLink.forEach((n) => n.addEventListener('click', linkAction));
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
-const scrollHeader = () =>{
-    const header = document.getElementById('header')
-    // When the scroll is greater than 50 viewport height, add the scroll-header class
-    this.scrollY >= 50 ? header.classList.add('bg-header') 
-                       : header.classList.remove('bg-header')
-}
-window.addEventListener('scroll', scrollHeader)
-
+const scrollHeader = () => {
+    const header = document.getElementById('header');
+    // When the scroll is greater than 50 viewport height, add the bg-header class
+    this.scrollY >= 50 
+        ? header.classList.add('bg-header') 
+        : header.classList.remove('bg-header');
+};
+window.addEventListener('scroll', scrollHeader);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-const sections = document.querySelectorAll('section[id]')
+const sections = document.querySelectorAll('section[id]');
 
-const scrollActive = () =>{
-    const scrollY = window.pageYOffset
+const scrollActive = () => {
+    const scrollY = window.pageYOffset;
 
-    sections.forEach(current =>{
+    sections.forEach((current) => {
         const sectionHeight = current.offsetHeight,
               sectionTop = current.offsetTop - 58,
               sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']')
+              sectionsClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
 
-        if(sectionsClass){
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                sectionsClass.classList.add('active-link')
-            }else{
-                sectionsClass.classList.remove('active-link')
+        if (sectionsClass) {
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                sectionsClass.classList.add('active-link');
+            } else {
+                sectionsClass.classList.remove('active-link');
             }
         }
-    })
-}
-window.addEventListener('scroll', scrollActive)
-
+    });
+};
+window.addEventListener('scroll', scrollActive);
 
 /*=============== SERVICES SWIPER ===============*/
 let servicesSwiper = new Swiper('.services-swiper', {
@@ -82,7 +83,7 @@ let servicesSwiper = new Swiper('.services-swiper', {
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
 /* Safety check: ensure mixitup is loaded and container exists */
-if(typeof mixitup !== 'undefined' && document.querySelector('.work-container')){
+if (typeof mixitup !== 'undefined' && document.querySelector('.work-container')) {
     let mixerPortfolio = mixitup('.work-container', {
         selectors: {
             target: '.card'
@@ -94,14 +95,13 @@ if(typeof mixitup !== 'undefined' && document.querySelector('.work-container')){
 }
 
 /* Link Active Work */
-const linkWork = document.querySelectorAll('.work-item')
+const linkWork = document.querySelectorAll('.work-item');
 
-function activeWork(){
-    linkWork.forEach(l=> l.classList.remove('active-work'))
-    this.classList.add('active-work')
+function activeWork() {
+    linkWork.forEach((l) => l.classList.remove('active-work'));
+    this.classList.add('active-work');
 }
-linkWork.forEach(l=> l.addEventListener('click', activeWork))
-
+linkWork.forEach((l) => l.addEventListener('click', activeWork));
 
 /*=============== RESUME ACCORDION ===============*/
 const resumeHeaders = document.querySelectorAll('.resume-header');
@@ -130,85 +130,84 @@ resumeHeaders.forEach((header) => {
     });
 });
 
-
 /*=============== TESTIMONIALS SWIPER ===============*/
 let testimonialSwiper = new Swiper(".testimonials-swiper", {
     spaceBetween: 24,
     loop: true,
     grabCursor: true,
     pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
+        el: ".swiper-pagination",
+        clickable: true,
     },
     breakpoints: {
         576: {
-          slidesPerView: 2,
+            slidesPerView: 2,
         },
         768: {
-          slidesPerView: 2,
-          spaceBetween: 48,
+            slidesPerView: 2,
+            spaceBetween: 48,
         },
     },
 });
 
-
 /*=============== EMAIL JS ===============*/
 const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('message')
+      contactMessage = document.getElementById('message');
 
 const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     // serviceID - templateID - #form - publicKey
-    // CHECK: Ensure you have added these IDs to your HTML inputs if you want this to work!
     emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
         .then(() => {
             // Show sent message
-            contactMessage.textContent = 'Message sent successfully ✅'
+            contactMessage.textContent = 'Message sent successfully ✅';
+            contactMessage.style.color = 'green';
 
             // Remove message after 5 seconds
             setTimeout(() => {
-                contactMessage.textContent = ''
-            }, 5000)
+                contactMessage.textContent = '';
+            }, 5000);
 
             // Clear input fields
-            contactForm.reset()
+            contactForm.reset();
 
         }, () => {
             // Show error message
-            contactMessage.textContent = 'Message not sent (service error) ❌'
-        })
+            contactMessage.textContent = 'Message not sent (service error) ❌';
+            contactMessage.style.color = 'red';
+        });
+};
+
+if (contactForm) {
+    contactForm.addEventListener('submit', sendEmail);
 }
 
-if(contactForm){
-    contactForm.addEventListener('submit', sendEmail)
-}
-
-/*=============== DARK LIGHT THEME ===============*/ 
-const themeButton = document.getElementById('theme-toggle')
-const darkTheme = 'dark-theme'
-const iconTheme = 'ri-sun-line'
+/*=============== DARK LIGHT THEME ===============*/
+const themeButton = document.getElementById('theme-toggle');
+const darkTheme = 'dark-theme';
+const iconTheme = 'ri-sun-line';
 
 // Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
 
 // We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line';
 
 // We validate if the user previously chose a topic
 if (selectedTheme) {
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-  themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+    themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme);
 }
 
 // Activate / deactivate the theme manually with the button
-if(themeButton){
+if (themeButton) {
     themeButton.addEventListener('click', () => {
-        document.body.classList.toggle(darkTheme)
-        themeButton.classList.toggle(iconTheme)
-        localStorage.setItem('selected-theme', getCurrentTheme())
-        localStorage.setItem('selected-icon', getCurrentIcon())
-    })
+        document.body.classList.toggle(darkTheme);
+        themeButton.classList.toggle(iconTheme);
+        localStorage.setItem('selected-theme', getCurrentTheme());
+        localStorage.setItem('selected-icon', getCurrentIcon());
+    });
 }
