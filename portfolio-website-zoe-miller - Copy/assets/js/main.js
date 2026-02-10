@@ -149,7 +149,11 @@ let testimonialSwiper = new Swiper(".testimonials-swiper", {
         },
     },
 });
-/*=============== EMAIL JS (WITH CUSTOM VALIDATION) ===============*/
+
+
+
+
+/*=============== EMAIL JS (ERROR INSIDE INPUTS) ===============*/
 const contactForm = document.getElementById('contact-form'),
       contactName = document.getElementById('contact-name'),
       contactEmail = document.getElementById('contact-email'),
@@ -160,56 +164,43 @@ const contactForm = document.getElementById('contact-form'),
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // 1. Create a list of the inputs we need to check
+    // 1. Create a list of your inputs
     const inputs = [contactName, contactEmail, contactSubject, contactMessage];
     let hasError = false;
 
-    // 2. Check each input
+    // 2. Check each input. If empty, turn it RED and show message INSIDE.
     inputs.forEach(input => {
-        // If the input exists but is empty
-        if(input && input.value.trim() === ''){
+        if(input.value === ''){
             hasError = true;
-            input.classList.add('input-error'); // Adds red border (from CSS)
-            input.placeholder = 'Write all the input fields'; // Shows custom message inside
-        } else {
-            // Remove error if they fixed it
-            if(input) {
-                input.classList.remove('input-error');
-                input.placeholder = ''; 
-            }
+            input.classList.add('input-error'); // Turns border red (from CSS)
+            input.placeholder = 'Write all the input fields'; // Shows message inside
         }
     });
 
     if(hasError){
-        // 3. Remove the error style after 3 seconds
+        // 3. Remove the red error after 3 seconds
         setTimeout(() => {
             inputs.forEach(input => {
-                if(input) {
-                    input.classList.remove('input-error');
-                    input.placeholder = ''; 
-                }
+                input.classList.remove('input-error');
+                input.placeholder = ''; // Clear the message
             });
         }, 3000);
     } else {
-        // 4. If NO errors, Send Email
-        // PASTE YOUR KEYS HERE!
+        // 4. If no errors, Send Email
+        // 👇👇 PASTE YOUR KEYS HERE 👇👇
         emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
                 message.textContent = 'Message sent successfully ✅';
                 message.style.color = 'green';
-                
                 setTimeout(() => { message.textContent = '' }, 5000);
                 contactForm.reset();
-            }, () => {
-                message.textContent = 'Message not sent (service error) ❌';
-                message.style.color = 'red';
+            }, (error) => {
+                alert('OPs! SOMETHING WENT WRONG...', error);
             });
     }
 }
+if(contactForm) contactForm.addEventListener('submit', sendEmail);
 
-if(contactForm) {
-    contactForm.addEventListener('submit', sendEmail);
-}
 
 /*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById('theme-toggle');
