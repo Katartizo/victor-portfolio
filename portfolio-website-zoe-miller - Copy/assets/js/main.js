@@ -150,3 +150,39 @@ if(themeButton){
         localStorage.setItem('selected-icon', getCurrentIcon())
     })
 }
+
+
+
+/* ================================================== */
+/* 🚀 RESUME ACCORDION FIX (Paste at Bottom of JS) 🚀 */
+/* ================================================== */
+
+const resumeHeaders = document.querySelectorAll('.resume-header');
+
+resumeHeaders.forEach((header) => {
+    header.addEventListener('click', () => {
+        const item = header.parentNode;
+        const content = item.querySelector('.resume-content');
+
+        // Check if this item is already open
+        if (item.classList.contains('accordion-open')) {
+            // If open, close it
+            item.classList.remove('accordion-open');
+            content.style.height = '0px';
+        } else {
+            // If closed, open it (and close others)
+            
+            // 1. Close all other items first
+            document.querySelectorAll('.resume-item').forEach((otherItem) => {
+                if (otherItem !== item && otherItem.classList.contains('accordion-open')) {
+                    otherItem.classList.remove('accordion-open');
+                    otherItem.querySelector('.resume-content').style.height = '0px';
+                }
+            });
+
+            // 2. Open the clicked item
+            item.classList.add('accordion-open');
+            content.style.height = content.scrollHeight + 'px';
+        }
+    });
+});
