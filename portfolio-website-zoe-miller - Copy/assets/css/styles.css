@@ -1445,3 +1445,14 @@ body.dark-theme .skills-item {
   right: 0 !important; /* Forces menu to slide in */
 }
 
+
+
+
+
+/* 1. Force the Hamburger Icon to be Visible */
+.nav-toggle i {
+  display: block !important; 
+  font-size: 1.5rem;
+  color: var(--title-color);
+}
+
