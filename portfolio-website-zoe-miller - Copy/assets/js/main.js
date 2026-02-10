@@ -188,34 +188,3 @@ resumeHeaders.forEach((header) => {
 });
 
 
-
-
-/* ================================================== */
-/* 🚀 PORTFOLIO FILTER FIX (Paste at Bottom of JS) 🚀 */
-/* ================================================== */
-
-/* 1. Initialize MixItUp (The Filter Logic) */
-/* This checks if the library is loaded before running to prevent errors */
-if(typeof mixitup !== 'undefined' && document.querySelector('.work-container')){
-    let mixerPortfolio = mixitup('.work-container', {
-        selectors: {
-            target: '.card' /* Matches your HTML class: <div class="card mix ..."> */
-        },
-        animation: {
-            duration: 300
-        }
-    });
-}
-
-/* 2. Make the Buttons Clickable (Active State) */
-const linkWork = document.querySelectorAll('.work-item')
-
-function activeWork(){
-    // Remove 'active-work' line from all buttons
-    linkWork.forEach(l=> l.classList.remove('active-work'))
-    // Add the line to the one we just clicked
-    this.classList.add('active-work')
-}
-
-// Listen for clicks on the filter buttons
-linkWork.forEach(l=> l.addEventListener('click', activeWork))
