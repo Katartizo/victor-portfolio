@@ -211,3 +211,19 @@ if (themeButton) {
         localStorage.setItem('selected-icon', getCurrentIcon());
     });
 }
+
+
+/* ========================================= */
+/* 🔴 ERROR STYLES (For Empty Fields) 🔴     */
+/* ========================================= */
+
+/* 1. Turns the border RED */
+.input-error {
+  border: 2px solid hsl(5, 69%, 51%) !important; /* Red Color */
+}
+
+/* 2. Turns the placeholder text RED */
+.input-error::placeholder {
+  color: hsl(5, 69%, 51%) !important;
+  font-weight: bold;
+}
