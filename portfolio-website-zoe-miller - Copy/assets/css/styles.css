@@ -1386,3 +1386,62 @@ body.dark-theme .skills-item {
 
 
 
+
+/* ========================================= */
+/* 🚀 NAVBAR & MENU FIXES (Added at bottom) */
+/* ========================================= */
+
+/* 1. Force the Hamburger Icon to be Visible */
+.nav-toggle {
+  display: none; /* Hidden by default on PC */
+  cursor: pointer;
+}
+
+.nav-toggle i {
+  display: block !important; /* Force the icon to show */
+  font-size: 1.5rem;
+  color: var(--title-color);
+}
+
+/* 2. Mobile Menu Settings (Phones only) */
+@media screen and (max-width: 767px) {
+  /* Show the toggle button on phones */
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ensure menu is hidden off-screen by default */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hides it to the right */
+    background-color: var(--body-color);
+    width: 80%;
+    height: 100%;
+    padding: 4rem 2rem;
+    box-shadow: -2px 0 4px rgba(0,0,0,0.1);
+    transition: .4s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Close button inside the mobile menu */
+  .nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+    display: block;
+  }
+}
+
+/* 3. The class JS adds to slide the menu in */
+.show-menu {
+  right: 0 !important; /* Forces menu to slide in */
+}
+
