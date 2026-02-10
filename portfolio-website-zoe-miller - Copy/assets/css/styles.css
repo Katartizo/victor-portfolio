@@ -1297,3 +1297,74 @@ body.dark-theme .skills-item {
 .dark-theme .contact-form-input {
   background-color: var(--container-color);
 }
+
+
+
+
+
+
+
+
+/* --- CUSTOM CONTACT CARD STYLE --- */
+.contact-card-custom {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem; /* Space between rows */
+}
+
+.contact-icon-style {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--title-color); /* Circle border */
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    position: relative; /* For the line */
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+/* The Line connecting circle to text */
+.contact-icon-style::after {
+    content: '';
+    position: absolute;
+    right: -20px; /* Length of the line */
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--title-color);
+    transform: translateY(-50%);
+}
+
+.contact-info-group {
+    margin-left: 1.5rem; /* Space for line */
+}
+
+.contact-title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.25rem;
+}
+
+.contact-data {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+}
+
+/* --- CENTER TERMS & CONDITIONS --- */
+.footer-terms {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Dark Theme Adjustments for Icons */
+.dark-theme .contact-icon-style {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+.dark-theme .contact-icon-style::after {
+    background-color: var(--text-color);
+}
