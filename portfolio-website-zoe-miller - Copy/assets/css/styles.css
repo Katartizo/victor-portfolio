@@ -1456,3 +1456,77 @@ body.dark-theme .skills-item {
   color: var(--title-color);
 }
 
+
+
+
+
+
+/* --- MOBILE MENU STYLING (Matches Screenshot) --- */
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden off-screen by default */
+    background-color: var(--body-color); /* Matches site background color */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    padding: 6rem 2rem 4rem; /* Top padding pushes links down below header */
+    transition: .4s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    box-shadow: none; /* Remove shadow for a cleaner look if desired */
+  }
+
+  /* Slide in effect */
+  .show-menu {
+    right: 0;
+  }
+
+  /* Adjust Close Button Position if needed, or hide if using toggle */
+  .nav-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--title-color);
+    cursor: pointer;
+  }
+  
+  /* Ensure the toggle button stays visible and on top if acting as close */
+  .nav-toggle {
+    z-index: 1001; 
+    position: relative;
+  }
+
+  /* Navigation Links Styling */
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .nav-link {
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    font-size: var(--h2-font-size); /* Larger text size as seen in screenshot */
+    transition: 0.3s;
+  }
+
+  .nav-link:hover {
+    color: var(--first-color);
+  }
+
+  /* Social Icons Styling within Menu */
+  .nav-social {
+    margin-top: auto; /* Pushes to bottom */
+    display: flex;
+    column-gap: 1.5rem;
+  }
+  
+  .nav-social-link {
+    font-size: 1.5rem;
+    color: var(--title-color);
+  }
+}
