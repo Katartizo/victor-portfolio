@@ -149,37 +149,65 @@ let testimonialSwiper = new Swiper(".testimonials-swiper", {
         },
     },
 });
-
-/*=============== EMAIL JS ===============*/
+/*=============== EMAIL JS (WITH CUSTOM VALIDATION) ===============*/
 const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('message');
+      contactName = document.getElementById('contact-name'),
+      contactEmail = document.getElementById('contact-email'),
+      contactSubject = document.getElementById('contact-subject'),
+      contactMessage = document.getElementById('contact-message'),
+      message = document.getElementById('message');
 
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // serviceID - templateID - #form - publicKey
-    emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
-        .then(() => {
-            // Show sent message
-            contactMessage.textContent = 'Message sent successfully ✅';
-            contactMessage.style.color = 'green';
+    // 1. Create a list of the inputs we need to check
+    const inputs = [contactName, contactEmail, contactSubject, contactMessage];
+    let hasError = false;
 
-            // Remove message after 5 seconds
-            setTimeout(() => {
-                contactMessage.textContent = '';
-            }, 5000);
+    // 2. Check each input
+    inputs.forEach(input => {
+        // If the input exists but is empty
+        if(input && input.value.trim() === ''){
+            hasError = true;
+            input.classList.add('input-error'); // Adds red border (from CSS)
+            input.placeholder = 'Write all the input fields'; // Shows custom message inside
+        } else {
+            // Remove error if they fixed it
+            if(input) {
+                input.classList.remove('input-error');
+                input.placeholder = ''; 
+            }
+        }
+    });
 
-            // Clear input fields
-            contactForm.reset();
+    if(hasError){
+        // 3. Remove the error style after 3 seconds
+        setTimeout(() => {
+            inputs.forEach(input => {
+                if(input) {
+                    input.classList.remove('input-error');
+                    input.placeholder = ''; 
+                }
+            });
+        }, 3000);
+    } else {
+        // 4. If NO errors, Send Email
+        // PASTE YOUR KEYS HERE!
+        emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
+            .then(() => {
+                message.textContent = 'Message sent successfully ✅';
+                message.style.color = 'green';
+                
+                setTimeout(() => { message.textContent = '' }, 5000);
+                contactForm.reset();
+            }, () => {
+                message.textContent = 'Message not sent (service error) ❌';
+                message.style.color = 'red';
+            });
+    }
+}
 
-        }, () => {
-            // Show error message
-            contactMessage.textContent = 'Message not sent (service error) ❌';
-            contactMessage.style.color = 'red';
-        });
-};
-
-if (contactForm) {
+if(contactForm) {
     contactForm.addEventListener('submit', sendEmail);
 }
 
