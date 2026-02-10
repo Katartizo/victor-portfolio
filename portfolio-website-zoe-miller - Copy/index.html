@@ -43,21 +43,34 @@
             <li class="nav-item">
               <a href="#testimonials" class="nav-link">Testimonials</a>
             </li>
+
             <li class="nav-item">
               <a href="#contact" class="nav-link">Contact</a>
             </li>
           </ul>
 
-          <div class="nav-social">
-            <a href="https://x.com/victor_eyitayo" target="_blank" class="nav-social-link">
+          <div class="social-links">
+            <a
+              href="https://x.com/victor_eyitayo"
+              target="_blank"
+              class="social-link"
+            >
               <i class="ri-twitter-fill"></i>
             </a>
-            <a href="https://github.com/Katartizo" target="_blank" class="nav-social-link">
+            <a
+              href="https://github.com/Katartizo"
+              target="_blank"
+              class="social-link"
+            >
               <i class="ri-github-fill"></i>
             </a>
-            <a href="https://linkedin.com/" target="_blank" class="nav-social-link">
+            <a href="https://linkedin.com/" target="_blank" class="social-link">
               <i class="ri-linkedin-fill"></i>
             </a>
+          </div>
+
+          <div class="section-deco deco-left header-deco">
+            <img src="assets/img/shape-1.png" alt="" class="shape" />
           </div>
 
           <div class="nav-close" id="nav-close">
@@ -78,7 +91,7 @@
     <main class="main">
       <section class="home section" id="home">
         <div class="home-container container">
-          <div class="home-content">
+          <div class="home-container">
             <h2 class="home-subtitle">Hello, <span>My Name is</span></h2>
             <h1 class="home-title"><span>ETV</span> Victor</h1>
             <h3 class="home-job">Web Developer</h3>
@@ -108,13 +121,31 @@
               am skilled in WordPress. I love discussing what makes us unique.
             </p>
 
-            <div class="home-socials">
-                </div>
+            <div class="home-socials social-links">
+              <a href="https://x.com/victor_eyitayo" class="social-links">
+                <i class="ri-twitter-fill"></i>
+              </a>
+
+              <a href="https://github.com/Katartizo" class="social-links">
+                <i class="ri-github-fill"></i>
+              </a>
+
+              <a href="https://linkedin.com/Taiwo_victor" class="social-links">
+                <i class="ri-linkedin-fill"></i>
+              </a>
+            </div>
 
             <div class="home-btns">
-              <a href="assets/victor-cv.pdf" download="" class="btn">Download CV</a>
-              <a href="#skills" class="home-link">My Skills</a>
+              <a href="assets/victor-cv.pdf" download="" class="btn"
+                >Download CV</a
+              >
+
+              <a href="#" class="home-link">My Skills</a>
             </div>
+          </div>
+
+          <div class="section-deco deco-left">
+            <img src="assets/img/shape-1.png" alt="" class="shape" />
           </div>
         </div>
       </section>
@@ -129,9 +160,11 @@
                 <h4 class="services-subtitle">Web Development</h4>
                 <h3 class="services-title">Web Design</h3>
                 <p class="services-description">
-                  Web designers craft the overall vision & plan for a website layout.
+                  Web designers craft the overall vision & plan for a website
+                  layout. Professional logo development: Business, Company, or
+                  Personal.
                 </p>
-                <a href="#contact" class="link">
+                <a href="#" class="link">
                   contact me <i class="ri-arrow-right-line link-icon"></i>
                 </a>
               </div>
@@ -140,9 +173,11 @@
                 <h4 class="services-subtitle">Apps Development</h4>
                 <h3 class="services-title">iOS & Android</h3>
                 <p class="services-description">
-                  Design software applications to run on mobile devices.
+                  Design software applications to run on mobile devices. Modern
+                  and mobile-ready applications that will help you reach all of
+                  your marketing goals.
                 </p>
-                <a href="#contact" class="link">
+                <a href="#" class="link">
                   contact me <i class="ri-arrow-right-line link-icon"></i>
                 </a>
               </div>
@@ -151,33 +186,117 @@
                 <h4 class="services-subtitle">CMS Expert</h4>
                 <h3 class="services-title">WordPress Solutions</h3>
                 <p class="services-description">
-                  Custom Elementor design, theme development, and plugin integration.
+                  Custom Elementor design, theme development, and plugin
+                  integration. I build easy-to-manage websites that are secure,
+                  fast, and SEO-optimized.
                 </p>
-                <a href="#contact" class="link">
+                <a href="#" class="link">
+                  contact me <i class="ri-arrow-right-line link-icon"></i>
+                </a>
+              </div>
+
+              <div class="swiper-slide card">
+                <h4 class="services-subtitle">PHP & Laravel</h4>
+                <h3 class="services-title">Custom Web Development</h3>
+                <p class="services-description">
+                  Developing robust backend architectures and dynamic front-end
+                  interfaces using PHP, Laravel, and JavaScript for complex
+                  business requirements.
+                </p>
+                <a href="#" class="link">
+                  contact me <i class="ri-arrow-right-line link-icon"></i>
+                </a>
+              </div>
+
+              <div class="swiper-slide card">
+                <h4 class="services-subtitle">Optimization</h4>
+                <h3 class="services-title">Website Maintenance</h3>
+                <p class="services-description">
+                  Troubleshooting bugs, improving page load speed (Core Web
+                  Vitals), and ensuring your website remains secure and
+                  up-to-date.
+                </p>
+                <a href="#" class="link">
                   contact me <i class="ri-arrow-right-line link-icon"></i>
                 </a>
               </div>
             </div>
             <div class="swiper-pagination"></div>
           </div>
+
+          <div class="section-deco deco-right">
+            <img src="assets/img/shape-1.png" alt="" class="shape" />
+          </div>
         </div>
       </section>
 
       <section class="skills section" id="skills">
         <h2 class="section-title" data-title="My Talent">Professional Skills</h2>
+
         <div class="skills-container container grid">
-            <div class="skills-item">
-                <div class="skills-header"><h3 class="skills-name">PHP</h3></div>
-                <p class="skills-description">Developing robust server-side logic.</p>
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">PHP</h3>
             </div>
-            <div class="skills-item">
-                <div class="skills-header"><h3 class="skills-name">JavaScript</h3></div>
-                <p class="skills-description">Building interactive elements.</p>
+            <p class="skills-description">
+              Developing robust server-side logic and secure architectures to
+              power dynamic, data-driven applications.
+            </p>
+          </div>
+
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">JavaScript</h3>
             </div>
-            <div class="skills-item">
-                <div class="skills-header"><h3 class="skills-name">WordPress</h3></div>
-                <p class="skills-description">Expertly managing CMS deployments.</p>
+            <p class="skills-description">
+              Building interactive elements and seamless functionality to
+              enhance user engagement and interface responsiveness.
+            </p>
+          </div>
+
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">WordPress</h3>
             </div>
+            <p class="skills-description">
+              Expertly managing CMS deployments, customizing themes, and
+              integrating plugins for scalable content solutions.
+            </p>
+          </div>
+
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">Laravel</h3>
+            </div>
+            <p class="skills-description">
+              Utilizing the MVC framework to build elegant, structured, and
+              maintainable web applications efficiently.
+            </p>
+          </div>
+
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">HTML</h3>
+            </div>
+            <p class="skills-description">
+              Crafting semantic, accessible, and SEO-friendly markup that serves
+              as the solid backbone for all web projects.
+            </p>
+          </div>
+
+          <div class="skills-item">
+            <div class="skills-header">
+              <h3 class="skills-name">CSS</h3>
+            </div>
+            <p class="skills-description">
+              Designing responsive layouts and fluid animations that ensure a
+              stunning visual experience across all device sizes.
+            </p>
+          </div>
+        </div>
+
+        <div class="section-deco deco-left">
+          <img src="assets/img/shape-1.png" alt="" class="shape" />
         </div>
       </section>
 
@@ -192,128 +311,288 @@
           </ul>
 
           <div class="work-container grid">
-            
             <div class="card mix mobile">
               <div class="work-icon-box">
-                <i class="ri-cloud-windy-line" style="font-size: 3rem; color: var(--first-color);"></i>
+                <i
+                  class="ri-cloud-windy-line"
+                  style="font-size: 3rem; color: var(--first-color);"
+                ></i>
               </div>
+
               <h4 class="work-category">React Native</h4>
               <h3 class="work-title">Weather Forecast App</h3>
-              <p class="work-description">Real-time weather tracking application.</p>
-              <a href="#" class="link">View Code <i class="ri-github-line link-icon"></i></a>
+
+              <p class="work-description">
+                A real-time weather tracking application built with React Native
+                and Expo, integrating OpenWeather API for accurate data.
+              </p>
+
+              <a href="#" class="link">
+                View Code <i class="ri-github-line link-icon"></i>
+              </a>
             </div>
 
             <div class="card mix mobile">
               <div class="work-icon-box">
-                <i class="ri-book-read-line" style="font-size: 3rem; color: var(--first-color);"></i>
+                <i
+                  class="ri-book-read-line"
+                  style="font-size: 3rem; color: var(--first-color);"
+                ></i>
               </div>
+
               <h4 class="work-category">React Native</h4>
               <h3 class="work-title">Bible Study App</h3>
-              <p class="work-description">Digital scripture reader with offline access.</p>
-              <a href="#" class="link">Coming Soon <i class="ri-arrow-right-line link-icon"></i></a>
+
+              <p class="work-description">
+                A digital scripture reader featuring offline access, note-taking
+                capabilities, and a smooth mobile interface.
+              </p>
+
+              <a href="#" class="link">
+                Coming Soon <i class="ri-arrow-right-line link-icon"></i>
+              </a>
             </div>
 
             <div class="card mix web">
               <div class="work-icon-box">
-                <i class="ri-layout-masonry-line" style="font-size: 3rem; color: var(--first-color);"></i>
+                <i
+                  class="ri-layout-masonry-line"
+                  style="font-size: 3rem; color: var(--first-color);"
+                ></i>
               </div>
+
               <h4 class="work-category">HTML & CSS</h4>
               <h3 class="work-title">Personal Portfolio</h3>
-              <p class="work-description">High-performance responsive developer portfolio.</p>
-              <a href="#" class="link">View Live <i class="ri-arrow-right-line link-icon"></i></a>
+
+              <p class="work-description">
+                A high-performance, responsive developer portfolio with dark
+                mode support and optimized CSS animations.
+              </p>
+
+              <a href="#" class="link">
+                View Live <i class="ri-arrow-right-line link-icon"></i>
+              </a>
             </div>
 
             <div class="card mix web">
               <div class="work-icon-box">
-                <i class="ri-computer-line" style="font-size: 3rem; color: var(--first-color);"></i>
+                <i
+                  class="ri-computer-line"
+                  style="font-size: 3rem; color: var(--first-color);"
+                ></i>
               </div>
-              <h4 class="work-category">WordPress</h4>
-              <h3 class="work-title">Avih Technologies</h3>
-              <p class="work-description">Corporate business website built with Elementor.</p>
-              <a href="#" class="link">View Live <i class="ri-arrow-right-line link-icon"></i></a>
-            </div>
 
+              <h4 class="work-category">WordPress / Elementor</h4>
+              <h3 class="work-title">Avih Technologies</h3>
+
+              <p class="work-description">
+                A corporate business website built with Elementor, focusing on
+                SEO optimization and fast page load speeds.
+              </p>
+
+              <a href="#" class="link">
+                View Live <i class="ri-arrow-right-line link-icon"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="resume section" id="resume">
         <h2 class="section-title" data-title="My Story">Resume</h2>
+
         <div class="resume-container container grid">
-            <div class="resume-group">
-                <h3 class="resume-title">Education</h3>
-                <div class="resume-items">
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h3 class="resume-header-title">FUT Minna</h3>
-                        </div>
-                        <div class="resume-content">
-                            <div class="resume-content-header">
-                                <h3 class="resume-content-title">B.Tech in Physics</h3>
-                                <span class="resume-date">2019 - 2025</span>
-                            </div>
-                            <p class="resume-description">Strong analytical skills.</p>
-                        </div>
-                    </div>
+          <div class="resume-group">
+            <h3 class="resume-title">Education</h3>
+
+            <div class="resume-items">
+              <div class="resume-item">
+                <div class="resume-header">
+                  <h3 class="resume-header-title">
+                    Federal University of Technology, Minna
+                  </h3>
+                  <span class="resume-icon">
+                    <i class="ri-graduation-cap-line"></i>
+                  </span>
                 </div>
-            </div>
-            
-            <div class="resume-group">
-                <h3 class="resume-title">Experience</h3>
-                <div class="resume-items">
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <h3 class="resume-header-title">WordPress Developer</h3>
-                        </div>
-                        <div class="resume-content">
-                            <div class="resume-content-header">
-                                <h3 class="resume-content-title">All M&B</h3>
-                                <span class="resume-date">Aug 2023 - Present</span>
-                            </div>
-                            <p class="resume-description">Building business websites.</p>
-                        </div>
-                    </div>
+
+                <div class="resume-content">
+                  <div class="resume-content-header">
+                    <h3 class="resume-content-title">B.Tech in Physics</h3>
+                    <span class="resume-date">2019 - 2025</span>
+                  </div>
+
+                  <p class="resume-description">
+                    Developed strong analytical and problem-solving skills, with
+                    a focus on complex systems and logic.
+                  </p>
                 </div>
+              </div>
+
+              <div class="resume-item">
+                <div class="resume-header">
+                  <h3 class="resume-header-title">Professional Development</h3>
+                  <span class="resume-icon">
+                    <i class="ri-code-s-slash-line"></i>
+                  </span>
+                </div>
+
+                <div class="resume-content">
+                  <div class="resume-content-header">
+                    <h3 class="resume-content-title">SQI, Aviv Academy, Zuri</h3>
+                    <span class="resume-date">2022 - Present</span>
+                  </div>
+
+                  <p class="resume-description">
+                    Intensive training in Full Stack Web Development
+                    (PHP/Laravel), WordPress Mastery, and Mobile App Development
+                    (React Native).
+                  </p>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div class="resume-group">
+            <h3 class="resume-title">Experience</h3>
+
+            <div class="resume-items">
+              <div class="resume-item">
+                <div class="resume-header">
+                  <h3 class="resume-header-title">WordPress Developer</h3>
+                  <span class="resume-icon"
+                    ><i class="ri-briefcase-line"></i
+                  ></span>
+                </div>
+
+                <div class="resume-content">
+                  <div class="resume-content-header">
+                    <h3 class="resume-content-title">All M&B</h3>
+                    <span class="resume-date">Aug 2023 - Present</span>
+                  </div>
+                  <p class="resume-description">
+                    Conceptualizing and executing website designs aligned with
+                    business objectives. I provide technical support, conduct
+                    site audits for performance, and train clients on effective
+                    website management.
+                  </p>
+                </div>
+              </div>
+
+              <div class="resume-item">
+                <div class="resume-header">
+                  <h3 class="resume-header-title">WordPress/Elementor Expert</h3>
+                  <span class="resume-icon"
+                    ><i class="ri-briefcase-line"></i
+                  ></span>
+                </div>
+
+                <div class="resume-content">
+                  <div class="resume-content-header">
+                    <h3 class="resume-content-title">Aviv Technologies</h3>
+                    <span class="resume-date">Jul 2023 - Present</span>
+                  </div>
+                  <p class="resume-description">
+                    Leading development teams to deliver responsive Elementor
+                    sites. I handle complex troubleshooting, site migrations,
+                    and implement security enhancements to ensure optimal
+                    performance.
+                  </p>
+                </div>
+              </div>
+
+              <div class="resume-item">
+                <div class="resume-header">
+                  <h3 class="resume-header-title">Full Stack Projects</h3>
+                  <span class="resume-icon"
+                    ><i class="ri-briefcase-line"></i
+                  ></span>
+                </div>
+
+                <div class="resume-content">
+                  <div class="resume-content-header">
+                    <h3 class="resume-content-title">Personal Portfolio</h3>
+                    <span class="resume-date">Nov 2022 - Present</span>
+                  </div>
+                  <p class="resume-description">
+                    Building custom WordPress landing pages and React Native
+                    apps (Bible & Weather App). focused on SEO strategies, user
+                    engagement, and contributing to open-source projects.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="testimonials section" id="testimonials">
         <div class="container">
-          <h2 class="section-title" data-title="My Customers Say">Testimonials</h2>
+          <h2 class="section-title" data-title="My Customers Say">
+            Testimonials
+          </h2>
 
           <div class="swiper testimonials-swiper">
             <div class="swiper-wrapper">
-              
               <div class="swiper-slide card">
-                <div class="testimonial-icon"><i class="ri-double-quotes-r"></i></div>
-                <img src="assets/img/SAVE_20251116_174011.jpg" alt="" class="testimonial-img" />
-                <p class="testimonial-description">"User experience is everything in my field. Victor built a responsive interface."</p>
+                <div class="testimonial-icon">
+                  <i class="ri-double-quotes-r"></i>
+                </div>
+                <img
+                  src="assets/img/SAVE_20251116_174011.jpg"
+                  alt=""
+                  class="testimonial-img"
+                />
+
+                <p class="testimonial-description">
+                  "User experience is everything in my field. Victor built a
+                  responsive, mobile-friendly interface that made it easy for
+                  our community to interact with the platform without any bugs
+                  or lag."
+                </p>
+
                 <h3 class="testimonial-name">Oche Solomon</h3>
-                <span class="testimonial-author">Eureka community Developer</span>
+                <span class="testimonial-author"
+                  >Eureka community Developer</span
+                >
               </div>
 
               <div class="swiper-slide card">
-                <div class="testimonial-icon"><i class="ri-double-quotes-r"></i></div>
-                <img src="assets/img/IMG-20251115-WA0060.jpg" alt="" class="testimonial-img" />
-                <p class="testimonial-description">"Victor handled our platform's backend architecture efficiently."</p>
+                <div class="testimonial-icon">
+                  <i class="ri-double-quotes-r"></i>
+                </div>
+                <img
+                  src="assets/img/IMG-20251115-WA0060.jpg"
+                  alt=""
+                  class="testimonial-img"
+                />
+
+                <p class="testimonial-description">
+                  "Building a tech product requires speed and security. Victor
+                  handled our platform's backend architecture efficiently,
+                  ensuring Cycbe runs seamlessly for all our users. A top-tier
+                  developer."
+                </p>
+
                 <h3 class="testimonial-name">Bulus Ayuba</h3>
                 <span class="testimonial-author">CEO, Cycbe</span>
               </div>
 
               <div class="swiper-slide card">
-                <div class="testimonial-icon"><i class="ri-double-quotes-r"></i></div>
-                <img src="IMG-20240719-WA0045 (3).jpg" alt="Grace" class="testimonial-img" />
-                <p class="testimonial-description">"Victor is an exceptional developer who delivered exactly what we needed."</p>
-                <h3 class="testimonial-name">Grace</h3>
-                <span class="testimonial-author">Client</span>
-              </div>
+                <div class="testimonial-icon">
+                  <i class="ri-double-quotes-r"></i>
+                </div>
+                <img
+                  src="IMG-20240719-WA0045 (3).jpg"
+                  alt="Grace"
+                  class="testimonial-img"
+                />
+                
+                <p class="testimonial-description">
+                   "Victor is an exceptional developer who delivered exactly what we needed. Highly recommended!"
+                </p>
 
-              <div class="swiper-slide card">
-                <div class="testimonial-icon"><i class="ri-double-quotes-r"></i></div>
-                <img src="https://via.placeholder.com/80" alt="Isaac" class="testimonial-img" />
-                <p class="testimonial-description">"I will find text to use."</p>
-                <h3 class="testimonial-name">Isaac</h3>
+                <h3 class="testimonial-name">Grace</h3>
                 <span class="testimonial-author">Client</span>
               </div>
 
@@ -329,74 +608,56 @@
           <div class="contact-content">
             <div class="contact-info">
               
-              <div class="contact-card-custom">
-                <div class="contact-icon-style">
-                    <i class="ri-map-pin-line"></i>
-                </div>
-                <div class="contact-info-group">
-                    <h3 class="contact-title">Address</h3>
-                    <span class="contact-data">Lagos, Nigeria</span>
-                </div>
+              <div class="contact-card">
+                <i class="ri-map-pin-line contact-icon"></i>
+                <h3 class="contact-title">Address</h3>
+                <span class="contact-data">Lagos, Nigeria</span>
               </div>
 
-              <div class="contact-card-custom">
-                <div class="contact-icon-style">
-                    <i class="ri-user-line"></i>
-                </div>
-                <div class="contact-info-group">
-                    <h3 class="contact-title">Freelance</h3>
-                    <span class="contact-data">Available Right Now</span>
-                </div>
+              <div class="contact-card">
+                <i class="ri-user-line contact-icon"></i>
+                <h3 class="contact-title">Freelance</h3>
+                <span class="contact-data">Available Right Now</span>
               </div>
 
-              <div class="contact-card-custom">
-                <div class="contact-icon-style">
-                    <i class="ri-mail-line"></i>
-                </div>
-                <div class="contact-info-group">
-                    <h3 class="contact-title">Email</h3>
-                    <span class="contact-data">eyitayovictor2022@gmail.com</span>
-                </div>
+              <div class="contact-card">
+                <i class="ri-mail-line contact-icon"></i>
+                <h3 class="contact-title">Email</h3>
+                <span class="contact-data">eyitayovictor2022@gmail.com</span>
               </div>
       
-              <div class="contact-card-custom">
-                <div class="contact-icon-style">
-                    <i class="ri-phone-line"></i>
-                </div>
-                <div class="contact-info-group">
-                    <h3 class="contact-title">Phone</h3>
-                    <span class="contact-data">+234-9037835334</span>
-                </div>
+              <div class="contact-card">
+                <i class="ri-phone-line contact-icon"></i>
+                <h3 class="contact-title">Phone</h3>
+                <span class="contact-data">+234-9037835334</span>
               </div>
-
             </div>
           </div>
       
           <div class="contact-content">
-            <form action="" class="contact-form" id="contact-form">
+            <form action="" class="contact-form">
               <div class="contact-form-div">
                 <label class="contact-form-tag">Your full Name *</label>
-                <input type="text" name="user_name" class="contact-form-input" id="contact-name" />
+                <input type="text" placeholder="" class="contact-form-input" />
               </div>
       
               <div class="contact-form-div">
                 <label class="contact-form-tag">Your Email Address *</label>
-                <input type="email" name="user_email" class="contact-form-input" id="contact-email" />
+                <input type="email" placeholder="" class="contact-form-input" />
               </div>
 
               <div class="contact-form-div">
                 <label class="contact-form-tag">Your Subject *</label>
-                <input type="text" name="subject" class="contact-form-input" id="contact-subject" />
+                <input type="text" placeholder="" class="contact-form-input" />
               </div>
       
               <div class="contact-form-div contact-form-area">
                 <label class="contact-form-tag">Your Message *</label>
-                <textarea name="message" id="contact-message" cols="30" rows="10" class="contact-form-input"></textarea>
+                <textarea name="" id="" cols="30" rows="10" placeholder="" class="contact-form-input"></textarea>
               </div>
       
-              <button type="submit" class="btn contact-button">Send Message</button>
-              <p class="footer-terms">* Accept the terms and conditions.</p>
-              <p class="contact-message" id="message"></p>
+              <button class="btn contact-button">Send Message</button>
+              <p class="footer-terms" style="margin-top: 15px; font-size: 0.8rem;">* Accept the terms and conditions.</p>
             </form>
           </div>
         </div>
@@ -405,20 +666,53 @@
     </main>
 
     <footer class="footer">
-        <div class="footer-container container">
-          <div class="footer-social">
-            <a href="https://x.com/victor_eyitayo" target="_blank" class="footer-social-link"><i class="ri-twitter-fill"></i></a>
-            <a href="https://github.com/Katartizo" target="_blank" class="footer-social-link"><i class="ri-github-fill"></i></a>
-            <a href="https://linkedin.com/" target="_blank" class="footer-social-link"><i class="ri-linkedin-fill"></i></a>
+        <div class="footer-container container" style="text-align: center; display: block;">
+          
+          <div class="footer-social" style="margin-bottom: 20px;">
+            <a href="https://x.com/victor_eyitayo" target="_blank" class="footer-social-link" style="margin: 0 10px; display: inline-flex;">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a href="https://github.com/Katartizo" target="_blank" class="footer-social-link" style="margin: 0 10px; display: inline-flex;">
+              <i class="ri-github-fill"></i>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" class="footer-social-link" style="margin: 0 10px; display: inline-flex;">
+              <i class="ri-linkedin-fill"></i>
+            </a>
           </div>
-          <span class="footer-copy">&#169; 2026 Victor. All rights reserved</span>
-          <span class="footer-copy">Developed by Victor</span>
+      
+          <span class="footer-copy">
+            &#169; 2026 Victor. All rights reserved
+          </span>
+          <span class="footer-copy" style="display: block; margin-top: 10px;">
+            Developed by Victor
+          </span>
+        </div>
+        
+        <div class="section-deco deco-right">
+          <img src="assets/img/shape-1.png" alt="" class="shape" />
+        </div>
+        
+        <div class="section-deco deco-left">
+            <img src="assets/img/shape-2.png" alt="" class="shape" />
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="assets/js/main.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
+</html>
+
+  </body>
 </html>
