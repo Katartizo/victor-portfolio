@@ -136,7 +136,9 @@ window.addEventListener('load', function() {
     linkWork.forEach(l => l.addEventListener('click', activeWork));
 });
 
-/*=============== EMAIL JS (CUSTOM ERROR VALIDATION) ===============*/
+
+
+/*=============== EMAIL JS (Custom Validation & Sending) ===============*/
 const contactForm = document.getElementById('contact-form'),
       contactName = document.getElementById('contact-name'),
       contactEmail = document.getElementById('contact-email'),
@@ -147,46 +149,63 @@ const contactForm = document.getElementById('contact-form'),
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // 1. Check Inputs
+    // 1. Create a list of the inputs we need to check
     const inputs = [contactName, contactEmail, contactSubject, contactMessage];
     let hasError = false;
 
+    // 2. Check each input: Is it empty?
     inputs.forEach(input => {
-        if(input && input.value.trim() === ''){
+        if(input.value.trim() === ''){
+            // YES, it is empty
             hasError = true;
-            input.classList.add('input-error'); 
-            // Save original placeholder
-            if(!input.dataset.tempPlaceholder) input.dataset.tempPlaceholder = input.placeholder;
-            input.placeholder = 'Don\'t leave empty space'; 
-        } else if (input) {
-             input.classList.remove('input-error');
-             // Restore placeholder
-             if(input.dataset.tempPlaceholder) input.placeholder = input.dataset.tempPlaceholder;
+            input.classList.add('input-error'); // Turn border red (requires CSS)
+            
+            // Save the old placeholder
+            if(!input.dataset.tempPlaceholder) {
+                input.dataset.tempPlaceholder = input.placeholder;
+            }
+            // Change placeholder to error message
+            input.placeholder = "Don't leave empty space"; 
+        } else {
+            // NO, it has text
+            input.classList.remove('input-error');
+            // Restore the old placeholder if it exists
+            if(input.dataset.tempPlaceholder) {
+                input.placeholder = input.dataset.tempPlaceholder;
+            }
         }
     });
 
+    // 3. Decide what to do
     if(hasError){
-        // Remove error styles after 3 seconds
+        // ERROR: Show red borders for 3 seconds, then remove them
         setTimeout(() => {
             inputs.forEach(input => {
-                if(input) {
-                    input.classList.remove('input-error');
-                    if(input.dataset.tempPlaceholder) input.placeholder = input.dataset.tempPlaceholder;
+                input.classList.remove('input-error');
+                if(input.dataset.tempPlaceholder) {
+                    input.placeholder = input.dataset.tempPlaceholder;
                 }
             });
         }, 3000);
     } else {
-        // 2. Send Email
-        // REPLACE WITH YOUR KEYS
+        // SUCCESS: No errors, so SEND THE EMAIL
+        // Using your keys: Service ID, Template ID, Form ID, Public Key
         emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
+                // Success Message
                 message.textContent = 'Message sent successfully ✅';
                 message.style.color = 'green';
+                
+                // Clear the message after 5 seconds
                 setTimeout(() => { message.textContent = '' }, 5000);
+                
+                // Clear the form fields
                 contactForm.reset();
-            }, () => {
+            }, (error) => {
+                // Error Message (Network or Service error)
                 message.textContent = 'Message not sent (service error) ❌';
                 message.style.color = 'red';
+                console.log('FAILED...', error);
             });
     }
 }
@@ -194,7 +213,6 @@ const sendEmail = (e) => {
 if(contactForm) {
     contactForm.addEventListener('submit', sendEmail);
 }
-
 /*=============== DARK THEME TOGGLE ===============*/
 const themeButton = document.getElementById('theme-toggle');
 const darkTheme = 'dark-theme';
