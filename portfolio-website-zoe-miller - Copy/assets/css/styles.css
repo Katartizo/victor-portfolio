@@ -139,7 +139,7 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 
 /* Remove any old broken icons if they exist */
 .nav-toggle i {
-  display: none;
+
 }
 
 /* NAV BUTTONS (Side-by-Side Fix) */
