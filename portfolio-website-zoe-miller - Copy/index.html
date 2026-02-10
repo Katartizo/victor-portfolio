@@ -669,32 +669,32 @@
 </div>
       
           <div class="contact-content">
-            <form action="" class="contact-form">
-              <div class="contact-form-div">
-                <label class="contact-form-tag">Your full Name *</label>
-                <input type="text" placeholder="" class="contact-form-input" />
-              </div>
-      
-              <div class="contact-form-div">
-                <label class="contact-form-tag">Your Email Address *</label>
-                <input type="email" placeholder="" class="contact-form-input" />
-              </div>
+            <form action="" class="contact-form" id="contact-form">
+  <div class="contact-form-div">
+    <label class="contact-form-tag">Your full Name *</label>
+    <input type="text" id="contact-name" name="user_name" placeholder="Enter your name" class="contact-form-input" />
+  </div>
 
-              <div class="contact-form-div">
-                <label class="contact-form-tag">Your Subject *</label>
-                <input type="text" placeholder="" class="contact-form-input" />
-              </div>
-      
-              <div class="contact-form-div contact-form-area">
-                <label class="contact-form-tag">Your Message *</label>
-                <textarea name="" id="" cols="30" rows="10" placeholder="" class="contact-form-input"></textarea>
-              </div>
-      
-              <button class="btn contact-button">Send Message</button>
-              <p class="footer-terms" style="margin-top: 15px; font-size: 0.8rem;">* Accept the terms and conditions.</p>
-            </form>
-          </div>
-        </div>
+  <div class="contact-form-div">
+    <label class="contact-form-tag">Your Email Address *</label>
+    <input type="email" id="contact-email" name="user_email" placeholder="Enter your email" class="contact-form-input" />
+  </div>
+
+  <div class="contact-form-div">
+    <label class="contact-form-tag">Your Subject *</label>
+    <input type="text" id="contact-subject" name="subject" placeholder="Enter subject" class="contact-form-input" />
+  </div>
+
+  <div class="contact-form-div contact-form-area">
+    <label class="contact-form-tag">Your Message *</label>
+    <textarea id="contact-message" name="message" cols="30" rows="10" placeholder="Write your message here..." class="contact-form-input"></textarea>
+  </div>
+
+  <button type="submit" class="btn contact-button">Send Message</button>
+  <p class="footer-terms" style="margin-top: 15px; font-size: 0.8rem;">* Accept the terms and conditions.</p>
+  
+  <p class="contact-message" id="message"></p>
+</form>
       </section>
 
     </main>
