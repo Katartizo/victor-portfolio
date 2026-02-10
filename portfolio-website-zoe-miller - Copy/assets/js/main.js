@@ -72,33 +72,12 @@ let servicesSwiper = new Swiper('.services-swiper', {
 });
 
 /*=============== MIXITUP FILTER PORTFOLIO ===============*/
-/* This initializes the filter using the '.mix' class found in your HTML */
-let mixerPortfolio = mixitup('.work-container', {
-    selectors: {
-        target: '.mix' 
-    },
-    animation: {
-        duration: 300
-    }
-});
-
-/* Link Active Work (Highlights the button you clicked) */
-const linkWork = document.querySelectorAll('.work-item')
-
-function activeWork(){
-    linkWork.forEach(l=> l.classList.remove('active-work'))
-    this.classList.add('active-work')
+if(typeof mixitup !== 'undefined' && document.querySelector('.work-container')){
+    let mixerPortfolio = mixitup('.work-container', {
+        selectors: { target: '.card' },
+        animation: { duration: 300 }
+    });
 }
-linkWork.forEach(l=> l.addEventListener('click', activeWork))
-
-
-/* Link Active Work */
-const linkWork = document.querySelectorAll('.work-item')
-function activeWork(){
-    linkWork.forEach(l=> l.classList.remove('active-work'))
-    this.classList.add('active-work')
-}
-linkWork.forEach(l=> l.addEventListener('click', activeWork))
 
 /*=============== TESTIMONIALS SWIPER ===============*/
 let testimonialSwiper = new Swiper(".testimonials-swiper", {
