@@ -138,73 +138,74 @@ window.addEventListener('load', function() {
 
 
 
-/*=============== EMAIL JS (Custom Validation & Sending) ===============*/
+
+
+/*=============== EMAIL JS (With Button Feedback) ===============*/
 const contactForm = document.getElementById('contact-form'),
       contactName = document.getElementById('contact-name'),
       contactEmail = document.getElementById('contact-email'),
       contactSubject = document.getElementById('contact-subject'),
       contactMessage = document.getElementById('contact-message'),
-      message = document.getElementById('message');
+      message = document.getElementById('message'),
+      contactBtn = document.querySelector('.contact-button'); // Select the button
 
 const sendEmail = (e) => {
     e.preventDefault();
 
-    // 1. Create a list of the inputs we need to check
+    // 1. Check Inputs
     const inputs = [contactName, contactEmail, contactSubject, contactMessage];
     let hasError = false;
 
-    // 2. Check each input: Is it empty?
     inputs.forEach(input => {
         if(input.value.trim() === ''){
-            // YES, it is empty
             hasError = true;
-            input.classList.add('input-error'); // Turn border red (requires CSS)
-            
-            // Save the old placeholder
-            if(!input.dataset.tempPlaceholder) {
-                input.dataset.tempPlaceholder = input.placeholder;
-            }
-            // Change placeholder to error message
+            input.classList.add('input-error'); 
+            if(!input.dataset.tempPlaceholder) input.dataset.tempPlaceholder = input.placeholder;
             input.placeholder = "Don't leave empty space"; 
         } else {
-            // NO, it has text
-            input.classList.remove('input-error');
-            // Restore the old placeholder if it exists
-            if(input.dataset.tempPlaceholder) {
-                input.placeholder = input.dataset.tempPlaceholder;
-            }
+             input.classList.remove('input-error');
+             if(input.dataset.tempPlaceholder) input.placeholder = input.dataset.tempPlaceholder;
         }
     });
 
-    // 3. Decide what to do
     if(hasError){
-        // ERROR: Show red borders for 3 seconds, then remove them
+        // Remove error styles after 3 seconds
         setTimeout(() => {
             inputs.forEach(input => {
                 input.classList.remove('input-error');
-                if(input.dataset.tempPlaceholder) {
-                    input.placeholder = input.dataset.tempPlaceholder;
-                }
+                if(input.dataset.tempPlaceholder) input.placeholder = input.dataset.tempPlaceholder;
             });
         }, 3000);
     } else {
-        // SUCCESS: No errors, so SEND THE EMAIL
-        // Using your keys: Service ID, Template ID, Form ID, Public Key
+        // 2. Change Button to "Sending..."
+        const originalText = contactBtn.innerText;
+        contactBtn.innerText = 'Sending...';
+
+        // 3. Send Email
+        // YOUR SPECIFIC KEYS
         emailjs.sendForm('service_fq0mpjm', 'template_hnvn4u7', '#contact-form', 'ELFrx7vVcXdL9U6os')
             .then(() => {
-                // Success Message
+                // SUCCESS: Change Button to "Sent" + Checkmark
+                contactBtn.innerHTML = 'Sent <i class="ri-check-line"></i>';
+                
+                // Show small message below (optional backup)
                 message.textContent = 'Message sent successfully ✅';
                 message.style.color = 'green';
                 
-                // Clear the message after 5 seconds
-                setTimeout(() => { message.textContent = '' }, 5000);
-                
-                // Clear the form fields
+                // Reset form
                 contactForm.reset();
+
+                // Reset Button after 5 seconds
+                setTimeout(() => { 
+                    message.textContent = '';
+                    contactBtn.innerText = 'Send Message'; // Back to original
+                }, 5000);
+                
             }, (error) => {
-                // Error Message (Network or Service error)
+                // ERROR
                 message.textContent = 'Message not sent (service error) ❌';
                 message.style.color = 'red';
+                contactBtn.innerText = 'Send Message'; // Reset button immediately
                 console.log('FAILED...', error);
             });
     }
@@ -213,6 +214,9 @@ const sendEmail = (e) => {
 if(contactForm) {
     contactForm.addEventListener('submit', sendEmail);
 }
+
+
+
 /*=============== DARK THEME TOGGLE ===============*/
 const themeButton = document.getElementById('theme-toggle');
 const darkTheme = 'dark-theme';
