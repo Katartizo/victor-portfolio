@@ -1592,5 +1592,5 @@ body.dark-theme .skills-item {
 .testimonial-img[alt="Grace"] {
   /* Default is 'center', but you can use percentages */
   /* 50% = Horizontal Center, 10% = Vertical (10% from top) */
-  object-position: center 40% !important; 
+  object-position: center 50% !important; 
 }
