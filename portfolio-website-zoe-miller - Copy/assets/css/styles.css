@@ -1618,3 +1618,39 @@ body.dark-theme .skills-item {
 .home-link {
   font-size: 0.9rem !important;
 }
+
+
+
+
+/* ========================================= */
+/* 🚀 FIX: FORCE NORMAL BUTTON SHAPE 🚀      */
+/* ========================================= */
+
+.home-btns {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important; /* Space between buttons */
+}
+
+.btn, .home-link {
+  /* 1. Kill the circle shape */
+  border-radius: 2rem !important; /* Standard pill shape, not a circle */
+  
+  /* 2. Reset size */
+  width: auto !important; 
+  height: auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  
+  /* 3. Set proper padding */
+  padding: 0.8rem 1.5rem !important;
+  
+  /* 4. Reset Flexbox stretching */
+  flex: 0 0 auto !important;
+  
+  /* 5. Ensure text fits */
+  white-space: nowrap !important;
+  font-size: 0.9rem !important;
+  line-height: normal !important;
+  aspect-ratio: auto !important; /* Stops it from forcing a square/circle */
+}
