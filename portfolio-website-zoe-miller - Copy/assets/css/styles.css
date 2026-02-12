@@ -1594,3 +1594,27 @@ body.dark-theme .skills-item {
   /* 50% = Horizontal Center, 10% = Vertical (10% from top) */
   object-position: center 70% !important; 
 }
+
+
+
+
+
+/* ========================================= */
+/* 🚀 FORCE BUTTON SIZE SMALLER 🚀           */
+/* ========================================= */
+
+.btn {
+  /* Reduces the space inside the button */
+  padding: 0.8rem 1.5rem !important; 
+  
+  /* OPTIONAL: Makes the text slightly smaller */
+  font-size: 0.9rem !important; 
+  
+  /* Ensures it doesn't stretch to full width */
+  width: auto !important; 
+}
+
+/* Make "My Skills" link smaller too */
+.home-link {
+  font-size: 0.9rem !important;
+}
