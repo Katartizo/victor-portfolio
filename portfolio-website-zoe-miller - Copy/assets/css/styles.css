@@ -1654,3 +1654,27 @@ body.dark-theme .skills-item {
   line-height: normal !important;
   aspect-ratio: auto !important; /* Stops it from forcing a square/circle */
 }
+
+
+
+.scrollup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: -30%; /* Hidden by default */
+  background-color: var(--container-color);
+  box-shadow: 0 4px 12px hsla(var(--hue), 0%, 0%, 0.1);
+  display: inline-flex;
+  padding: 0.35rem;
+  border-radius: .25rem;
+  font-size: 1.25rem;
+  color: var(--first-color);
+  z-index: 10;
+  transition: .4s;
+}
+.scrollup:hover {
+  transform: translateY(-.25rem);
+}
+/* Show Scroll Up class */
+.show-scroll {
+  bottom: 3rem;
+}
