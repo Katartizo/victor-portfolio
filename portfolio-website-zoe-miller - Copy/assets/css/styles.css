@@ -171,7 +171,7 @@ button, input, textarea { border: none; outline: none; background-color: transpa
 
 /* Profile Image - Fixed Head Cut */
 .home-img-wrapper { 
-  width: 280px; height: 290px; border-radius: 50%; 
+  width: 280px; height: 200px; border-radius: 50%; 
   overflow: hidden; border: 5px solid var(--container-color); 
   box-shadow: 0 4px 12px var(--shadow-color);
   margin-bottom: 1.5rem; 
