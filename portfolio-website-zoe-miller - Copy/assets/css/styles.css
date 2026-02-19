@@ -1690,5 +1690,5 @@ img[src*="DSC_9081"] {
   
   /* The second number controls up/down alignment. 
      Try changing 15% to 0% (Top), 20%, or 30% until your face sits perfectly */
-  object-position: center 25% !important; 
+  object-position: center 35% !important; 
 }
