@@ -1678,3 +1678,17 @@ body.dark-theme .skills-item {
 .show-scroll {
   bottom: 3rem;
 }
+
+
+/* ================================================== */
+/* 🚀 FIX: MAIN PROFILE IMAGE POSITION 🚀             */
+/* ================================================== */
+
+/* This targets your specific profile image */
+img[src*="DSC_9081"] {
+  object-fit: cover !important; 
+  
+  /* The second number controls up/down alignment. 
+     Try changing 15% to 0% (Top), 20%, or 30% until your face sits perfectly */
+  object-position: center 15% !important; 
+}
