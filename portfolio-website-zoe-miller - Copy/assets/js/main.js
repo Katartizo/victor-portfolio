@@ -108,8 +108,7 @@ resumeHeaders.forEach((header) => {
 /* ================================================================= */
 /* 🛠️ SAFETY WRAPPER: WAITS FOR PAGE TO LOAD BEFORE FILTERING 🛠️ */
 /* ================================================================= */
-// CHANGED 'load' to 'DOMContentLoaded' so the buttons work instantly
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('load', function() {
     
     /* --- 1. PORTFOLIO FILTER (MixItUp) --- */
     // We check if the container exists AND if MixItUp is loaded
