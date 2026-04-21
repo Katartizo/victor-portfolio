@@ -239,7 +239,6 @@ Your Message
 
 ========== FOOTER ==========
 .footer-copyright
-© 2025 <span>Miller</span>. All Rights Reserved
 Developed by <span>Victor</span>
 
 
